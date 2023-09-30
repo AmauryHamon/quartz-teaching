@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Teaching Portal</title>
+      <link>https://teaching.amauryhamon.com</link>
+      <description>Last 10 notes on Teaching Portal</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>CSS Cheatsheet</title>
+    <link>https://teaching.amauryhamon.com/CSS/CSS-Cheatsheet</link>
+    <guid>https://teaching.amauryhamon.com/CSS/CSS-Cheatsheet</guid>
+    <description>todo Title § Toggle Example .</description>
+    <pubDate>Sat, 30 Sep 2023 07:14:00 GMT</pubDate>
+  </item><item>
+    <title>CSS Introduction</title>
+    <link>https://teaching.amauryhamon.com/CSS/CSS-Introduction</link>
+    <guid>https://teaching.amauryhamon.com/CSS/CSS-Introduction</guid>
+    <description>CSS: Cascading Style Sheets § Le CSS fait parti des trois languages de programmation pour le web avec le HTML et le Javascript. Si l’on utilise la métaphore d’une maison, on peut imaginer les trois langages comme répondant aux affirmations suivantes: HTML (Hypertext Markup Language): Quelle est la structure de la maison et ce qu’elle contient? Les portes, fenêtres, pièces… CSS (Cascading Style Sheets): A quoi ressemble la maison? Les peintures, textiles, revêtements… JS (Javascript): Comment utilise-t’on la maison? Le chauffage, la lumière… On utilise le CSS pour mettre en forme graphiquement le site internet: définir les couleurs, la typographie, adapter le design au format des navigateurs sur ordinateur, tablette, téléphone.</description>
+    <pubDate>Sat, 30 Sep 2023 08:55:46 GMT</pubDate>
+  </item><item>
+    <title>CSS Index</title>
+    <link>https://teaching.amauryhamon.com/CSS/</link>
+    <guid>https://teaching.amauryhamon.com/CSS/</guid>
+    <description></description>
+    <pubDate>Sat, 30 Sep 2023 08:55:39 GMT</pubDate>
+  </item><item>
+    <title>Fontes Web</title>
+    <link>https://teaching.amauryhamon.com/CSS/webfonts</link>
+    <guid>https://teaching.amauryhamon.com/CSS/webfonts</guid>
+    <description>Tout le monde n’a pas les mêmes polices de caractères installées sur son ordinateur, tablette ou téléphone. C’est pourquoi sur un site internet, quand on veut utiliser une police spécifique, il faut l’inclure dans les fichiers du site.</description>
+    <pubDate>Sat, 30 Sep 2023 10:15:04 GMT</pubDate>
+  </item><item>
+    <title>HTML Cheatsheet</title>
+    <link>https://teaching.amauryhamon.com/HTML/HTML-Cheatsheet</link>
+    <guid>https://teaching.amauryhamon.com/HTML/HTML-Cheatsheet</guid>
+    <description>Sourced from Paul Copplestone’s amazing knowledge website Document § &lt;!DOCTYPE html&gt; &lt;!-- Special tag for specifying the document is HTML5 --&gt; &lt;html&gt;&lt;/html&gt; &lt;!-- Wraps the entire webpage --&gt; &lt;head&gt;&lt;/head&gt; &lt;!-- For your webpage metadata --&gt; &lt;body&gt;&lt;/body&gt; &lt;!-- Wraps everything that will be visible on the website --&gt; Toggle Example &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;!-- Meta content here --&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- Visible content here --&gt; &lt;body&gt; &lt;/html&gt; Structure § &lt;nav&gt;&lt;/nav&gt; &lt;!-- A wrapper for your navigation --&gt; &lt;section&gt;&lt;/section&gt; &lt;!-- Sections --&gt; &lt;div&gt;&lt;/div&gt; &lt;!-- Tag from grouping elements --&gt; &lt;span&gt;&lt;/span&gt; &lt;!-- Tag from wrapping inline elements --&gt; &lt;footer&gt;&lt;/footer&gt; &lt;!-- A wrapper for your footer info --&gt; Toggle Example &lt;body&gt; &lt;nav&gt;&lt;/nav&gt; &lt;section&gt; &lt;div&gt;Some content&lt;div&gt; &lt;div&gt;Some other content&lt;div&gt; &lt;/section&gt; &lt;section&gt; &lt;div&gt; &lt;span&gt;More&lt;/span&gt; &lt;span&gt;content&lt;/span&gt; &lt;div&gt; &lt;/section&gt; &lt;footer&gt; &lt;div&gt;Logo&lt;/div&gt; &lt;div&gt;Links&lt;/div&gt; &lt;/footer&gt; &lt;body&gt; Content § Headings § &lt;h1&gt;Heading 1&lt;/h1&gt; &lt;h2&gt;Heading 2&lt;/h2&gt; &lt;h3&gt;Heading 3&lt;/h3&gt; &lt;h4&gt;Heading 4&lt;/h4&gt; &lt;h5&gt;Heading 5&lt;/h5&gt; &lt;h6&gt;Heading 6&lt;/h6&gt; Body content § &lt;p&gt;Paragraph text&lt;/p&gt; &lt;strong&gt;Bold Text&lt;/strong&gt; &lt;em&gt;Italic text&lt;/em&gt; &lt;blockquote&gt;A quote/callout&lt;/blockquote&gt; &lt;code&gt;Inline code&lt;/code&gt; &lt;pre&gt;A block of code&lt;/pre&gt; Special tags § &lt;!-- Links --&gt; &lt;a href=&quot;/your/web/page&quot;&gt;Link name&lt;/a&gt; &lt;!-- A link to a webpage on your site --&gt; &lt;a href=&quot;http://example.</description>
+    <pubDate>Sat, 30 Sep 2023 07:14:00 GMT</pubDate>
+  </item><item>
+    <title>HTML Introduction</title>
+    <link>https://teaching.amauryhamon.com/HTML/HTML-Introduction</link>
+    <guid>https://teaching.amauryhamon.com/HTML/HTML-Introduction</guid>
+    <description>HTML: Hypertext Markup Language § Le HTML, est l’élément de base pour la création d’un site web. Il fait parti des trois languages de programmation pour le web avec le CSS et le Javascript.</description>
+    <pubDate>Sat, 30 Sep 2023 07:37:20 GMT</pubDate>
+  </item><item>
+    <title>HTML Index</title>
+    <link>https://teaching.amauryhamon.com/HTML/</link>
+    <guid>https://teaching.amauryhamon.com/HTML/</guid>
+    <description></description>
+    <pubDate>Sat, 30 Sep 2023 07:34:30 GMT</pubDate>
+  </item><item>
+    <title>Commenter son code</title>
+    <link>https://teaching.amauryhamon.com/commentaires</link>
+    <guid>https://teaching.amauryhamon.com/commentaires</guid>
+    <description>Il est essentiel et très pratique de commenter son code pour se souvenir de ce qu’il fait, pour soi-même, pour d’autres gens travaillant avec vous. Cela peut paraitre bête à dire mais bien nommer, ranger son code fait partie des aspects les plus importants.</description>
+    <pubDate>Sat, 30 Sep 2023 10:37:11 GMT</pubDate>
+  </item><item>
+    <title>Fichiers et dossiers</title>
+    <link>https://teaching.amauryhamon.com/fichiers-dossiers</link>
+    <guid>https://teaching.amauryhamon.com/fichiers-dossiers</guid>
+    <description>test.</description>
+    <pubDate>Sat, 30 Sep 2023 10:44:05 GMT</pubDate>
+  </item><item>
+    <title>Impressum</title>
+    <link>https://teaching.amauryhamon.com/impressum</link>
+    <guid>https://teaching.amauryhamon.com/impressum</guid>
+    <description>Ce site est conçu avec Quartz 4 by Jzhao, en utilisant D3.js. CSS custom par moi-même.</description>
+    <pubDate>Sat, 30 Sep 2023 07:14:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
