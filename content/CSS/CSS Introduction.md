@@ -31,16 +31,16 @@ Chaque sélecteur est suivi d'accolades `{}` à l'intérieur desquelles on peut 
 
 ## Déclarations
 
-Pour appliquer un style à un élément, on doit le . Une **déclaration** consiste d'un nom et sa valeur, qui s'écrivent de la manière suivante:
+Pour appliquer un style à un élément, on doit le déclarer. Une **déclaration** consiste d'une propriété et sa valeur, qui s'écrivent de la manière suivante:
 
 ```css
-color: red; /*on déclare la couleur rouge au sélecteur*/
+color: red; /*on déclare la propriété 'couleur' de valeur 'rouge' au sélecteur*/
 ```
 > [!important]
 >
 > `nom: valeur;`
 >
-> un nom de déclaration est **toujours** suivi de deux points `:`, suivi de la valeur, puis d'un point virgule `;` 
+> Dans une déclaration CSS, un nom de propriété est **toujours** suivi de deux points `:`, suivi de la valeur, puis d'un point virgule `;` 
 
 ### Valeurs
 
