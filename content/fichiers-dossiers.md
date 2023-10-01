@@ -1,5 +1,5 @@
 ---
-title: Fichiers et dossiers
+title: Organiser ses fichiers et dossiers
 draft: false
 tags:
 - essentiels

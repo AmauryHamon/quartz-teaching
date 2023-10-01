@@ -17,6 +17,8 @@ Si l'on utilise la métaphore d'une maison, on peut imaginer les trois langages 
 
 On utilise le CSS pour mettre en forme graphiquement le site internet: définir les couleurs, la typographie, adapter le design au format des navigateurs sur ordinateur, tablette, téléphone.
 
+---
+
 ## Sélecteurs
 
 Pour se servir du CSS, il faut définir la balise HTML que l'on veut styliser. Pour cela, on utilise des sélecteurs. Un sélecteur en CSS peut être un nom de **balise**, un **id** ou une **class** (cf. attributs html)
@@ -28,6 +30,8 @@ h1 { }      /* balise de titre h1 */
 ```
 
 Chaque sélecteur est suivi d'accolades `{}` à l'intérieur desquelles on peut mettre les styles à appliquer.
+
+---
 
 ## Déclarations
 
@@ -49,6 +53,8 @@ Une valeur peut être définie:
 - en chiffres et unités: `200px` 
 - en code de couleurs: `rgb(255,0,0)` 
 
+---
+
 ## Application
 
 Une fois le sélecteur et les déclarations mis ensemble cela nous donne:
@@ -68,6 +74,37 @@ h1 {
 }
 
 ```
+
+### Trois manières d'appliquer du CSS à du HTML
+1. Inline: en utilisant un attribut style dans une balise HTML
+2. Interne: en utilisant un élément style dans la section head de votre fichier HTML
+3. Externe: en utilisant un fichier .CSS distinct, relié à votre fichier HTML
+
+```html
+<!-- Dans un fichier HTML -->
+<!-- 1. Inline -->
+<h1 style="color:red">Titre</h1>
+
+<!-- 2. Interne -->
+<head>
+  <style>
+    h1 {
+      color:red;
+    }
+  </style>
+</head>
+
+<!-- 3. Externe -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+</html>
+
+```
+
+
 ### Déclarer un style à un sélecteur de classe:
 Dans le fichier html:
 ```html
@@ -82,7 +119,9 @@ Dans le fichier css:
 }
 ```
 
+
 ### Déclarer un style à un sélecteur d'identifiant:
+
 Dans le fichier html:
 ```html
 <h1 id="page-title">Grand Titre</h1>
@@ -94,7 +133,12 @@ Dans le fichier css:
     font-size: 1rem;
     color: pink;
 }
-```
+``` 
+>[!Attention]
+>
+> un ID prend le dessus sur une CLASS (voir plus bas)
+
+
 ### Déclarer un style avec des combinateurs:
 
 #### Sélecteur de voisin direct 
@@ -119,6 +163,35 @@ Permet de sélectionner les nœuds qui sont des descendants (pas nécessairement
 
 Plus d'informations sur les sélecteurs ici: [Mozilla Web Docs: Sélecteurs CSS](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_selectors)
 
+#### !important
+
+Il est possible d'appliquer à la suite d'une valeur `!important` pour que celle-ci prenne la plus haute spécificité. Ce qui écrase toutes les autres valeurs à priori plus spécifique initialement. Ceci n'est cependant pas une bonne pratique, et doit être évité à tout prix, sauf en cas de dernier recours.
+
+---
+
+## Cascade
+
+Le CSS fonctionne en cascade, c'est-à-dire que les styles définis plus tard prennent le dessus sur ceux définis plus tôt dans un fichier CSS.
+
+Il est bonne pratique d'être moins spécifique dans votre CSS. Utilisez plutôt les HTML TAGS et les CLASS que les ID pour styliser, et utilisez les combinateurs uniquement en cas de dernier recours.
+
+Un élément visé plus spécifiquement qu'un autre écrasera le style de celui moins spécifique.
+
+Par défaut, la dernière déclaration est lue par l'ordinateur. Si vous répétez accidentellement la même déclaration et différentes valeurs, seulement la dernière valeur sera rendue.
+
+---
+
+## Box Model
+
+Tous les éléments HTML d'un site peuvent être considéré comme des boites. On parle de *Box Model* en CSS lorsqu'on parle de la mise en page et design d'un site. Cela nous permet de définir des bordures à des éléments, l'espace entre chaque, etc.
+
+- Margin: espace externe autour d'un élément
+- Border: bordure autour des marges internes d'un élément
+- Padding: espace interne autour du contenu d'un élément.
+
+![Exemple de Box Model provenant de l'inspecteur web](https://www.simplilearn.com/ice9/free_resources_article_thumb/CSS-Box-Model.png)
+
+---
 
 ## Connecter un fichier CSS à un fichier HTML
 
@@ -129,6 +202,14 @@ Dans ce cas, il faut mettre dans la `head` du `ìndex.html` la balise suivante:
 <link rel="stylesheet" href="/style.css">
 ```
 
+
+
+---
+
+## Pages liées
+[[CSS-Cheatsheet]]
+
+---
 
 ## Ressources Externes CSS
 - [CSS Tricks](https://css-tricks.com/)

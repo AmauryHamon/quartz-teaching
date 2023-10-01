@@ -3,6 +3,7 @@ title: HTML Cheatsheet
 draft: false
 tags:
   - cheatsheet
+  - débutant
 ---
 
 Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copplest.one/knowledge/tech/html-cheatsheet.html)

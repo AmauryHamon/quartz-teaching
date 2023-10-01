@@ -16,3 +16,4 @@ Pour toutes questions ou remarques, n'hésitez pas à [me contacter par email](m
 
 Quelques points de départ: 
 [[HTML]][[CSS]]
+[Débutant](/tags/débutant) [Essentiels](/tags/essentiels)

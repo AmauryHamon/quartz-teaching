@@ -179,3 +179,6 @@ Voici une exemple d'une page web qui utilise les balises sémantiques:
 </body>
 </html>
 ```
+
+
+

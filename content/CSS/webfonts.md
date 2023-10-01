@@ -3,6 +3,7 @@ title: Fontes Web
 draft: false
 tags:
   - débutant
+  - essentiels
 ---
 
 Tout le monde n'a pas les mêmes polices de caractères installées sur son ordinateur, tablette ou téléphone. C'est pourquoi sur un site internet, quand on veut utiliser une police spécifique, il faut l'inclure dans les fichiers du site.
