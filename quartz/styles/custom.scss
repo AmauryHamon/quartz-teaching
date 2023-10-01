@@ -232,6 +232,13 @@ circle.node.active:hover{
         margin: 0 auto !important;
         padding: 0 1rem !important;        
     }
+    article p {
+        max-width: 70ch !important;
+    }
+    
+    article li {
+        max-width: 70ch !important;
+    }
     .page .page-header{
         width: 100%!important;
     }
