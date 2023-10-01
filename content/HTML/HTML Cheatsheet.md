@@ -6,27 +6,27 @@ tags:
   - débutant
 ---
 
-Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copplest.one/knowledge/tech/html-cheatsheet.html)
+Source: [Site web de Paul Copplestone](https://paul.copplest.one/knowledge/tech/html-cheatsheet.html)
 
 ## Document
 
 ```html
-<!DOCTYPE html> <!-- Special tag for specifying the document is HTML5  -->
-<html></html> <!-- Wraps the entire webpage  -->
-<head></head> <!-- For your webpage metadata  -->
-<body></body> <!-- Wraps everything that will be visible on the website  -->
+<!DOCTYPE html> <!-- Spécifier que le document est en HTML5  -->
+<html></html> <!-- contient la page entière  -->
+<head></head> <!-- Pour les metadata de la page  -->
+<body></body> <!-- Contient tout ce qui est visible dans la page  -->
 ```
 <details>
-<summary>Toggle Example</summary>
+<summary>Ouvrir l'exemple</summary>
 
 ```html
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Meta content here -->
+        <!-- Metadata ici -->
     </head>
     <body>
-        <!-- Visible content here -->
+        <!-- Contenu visible ici -->
     <body>
 </html>
 ```
@@ -38,14 +38,14 @@ Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copples
 ## Structure 
 
 ```html
-<nav></nav> <!-- A wrapper for your navigation  -->
+<nav></nav> <!-- Conteneur pour votre navigation  -->
 <section></section> <!-- Sections  -->
-<div></div> <!-- Tag from grouping elements -->
-<span></span> <!-- Tag from wrapping inline elements -->
-<footer></footer> <!-- A wrapper for your footer info  -->
+<div></div> <!-- Balise pour grouper des éléments -->
+<span></span> <!-- Balise pour envelopper des éléments alignés -->
+<footer></footer> <!-- Conteneur pour votre bas de page  -->
 ```
 <details>
-<summary>Toggle Example</summary>
+<summary>Ouvrir l'exemple</summary>
 
 ```html
 <body>
@@ -70,15 +70,15 @@ Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copples
 
 ---
 
-## Content
+## Contenu
 
-### Headings
+### Titrages
 
 ```html
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
+<h1>Heading 1</h1>  <!-- Un seul dans la page, titre de page -->
+<h2>Heading 2</h2>  <!-- Titre de section -->
+<h3>Heading 3</h3>  <!-- Titres de sous-section -->
+<h4>Heading 4</h4>  <!-- ... -->
 <h5>Heading 5</h5>
 <h6>Heading 6</h6>
 ```
@@ -86,46 +86,50 @@ Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copples
 ### Body content
 
 ```html
-<p>Paragraph text</p>
-<strong>Bold Text</strong>
-<em>Italic text</em>
-<blockquote>A quote/callout</blockquote>
-<code>Inline code</code>
-<pre>A block of code</pre>
+<p>Paragraphe</p>
+<strong>Texte Bold</strong>
+<em>Texte Italic</em>
+<blockquote>Une citation/callout</blockquote>
+<code>Ligne de code</code>
+<pre>A bloc multiligne de code</pre>
+<br> <!-- Un saut de ligne -->
+<hr> <!-- Une barre horizontale -->
 
 ```
 
-### Special tags
+### Balises spéciales
 
 ```html
-<!-- Links -->
-<a href="/your/web/page">Link name</a> <!-- A link to a webpage on your site  -->
-<a href="http://example.com">Link name</a> <!-- A link to a webpage on the internet  -->
+<!-- Liens (Anchor) -->
+<a href="/your/web/page">Link name</a> <!-- Lien vers une page interne à votre site  -->
+<a href="http://example.com">Link name</a> <!-- Lien vers une page externe sur le web  -->
+
 
 <!-- Images -->
-<img src="/your/image.jpg" alt="Some image description" /> <!-- An image hosted on your website  -->
-<img src="https://placekitten.com/300/300" alt="A cute cat" /> <!-- An from another website -->
+<img src="/your/image.jpg" alt="Some image description" /> <!-- Une image stockée sur votre site  -->
+<img src="https://placekitten.com/300/300" alt="A cute cat" /> <!-- Une image stockées sur un autre site -->
 
 ```
+Pour faire un lien vers une autre section de contenu dans une même page voir [[Scroll to Anchor]]
 
-### Lists
+### Listes
 
 ```html
-<li>List item 1</li> <!-- List item  -->
+<li>List item 1</li> <!-- Entrée de Liste  -->
 
-<!-- Unordered list  -->
+<!-- Liste non-ordonnée (à puces) -->
 <ul>
     <!-- Items  -->
 </ul> 
 
-<!-- Unordered list  -->
+<!-- Liste ordonnée (à chiffres/lettres, etc.) -->
 <ol>
     <!-- Items  -->
 </ol> 
 ```
 
 <details>
-<summary>Toggle Example</summary>
+<summary>Ouvrir l'exemple</summary>
 
 ```html
 <ul>
@@ -145,20 +149,20 @@ Sourced from Paul Copplestone's amazing knowledge [website](https://paul.copples
 ## Head
 
 ```html
-<title>Title of your webpage</title>
-<meta name=“description“ content=“Description of your site“ />
-<meta name=“keywords“ content=“keywords describing your site“ />
+<title>Titre de votre page</title> <!-- visible dans l'onglet de votre browser -->
+<meta name=“description“ content=“Description de votre site" />
+<meta name=“keywords“ content=“keywords décrivant votre site“ />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Styling -->
-<link rel="stylesheet" type="text/css" href="mystyle.css"> <!-- Link to external CSS  -->
+<link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers css externe  -->
 <style>
     /* Your own custom rules */
 </style>
 
  <!-- Javascript  -->
-<script src="some/script.js"></script>  <!-- Link to external JS file  -->
+<script src="some/script.js"></script>  <!-- Lien vers js externe  -->
 <script>
-    // Your own Javaxcript
+    // Your own Javascript
 </script>
 ```

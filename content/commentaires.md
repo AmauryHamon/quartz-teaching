@@ -26,6 +26,8 @@ Plus d'infos sur [[fichiers-dossiers | l'organisation de vos fichiers et dossier
 
 ```
 
+---
+
 ## Commentaires CSS
 
 ```css
@@ -36,6 +38,8 @@ body {
 }
 
 ```
+
+---
 
 ## Commentaires JS
 
@@ -49,4 +53,20 @@ sur plusieurs
 lignes */
 
 
+```
+---
+## Indenter son code
+
+Peu importe le langage utilisé, le code doit toujours être indenté à chaque nouveau d'imbrication.
+Par convention, une indentation comporte 2 ou 4 espaces.
+
+```html
+<div>
+  <h1>Heading</h1>
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+</div>
 ```
