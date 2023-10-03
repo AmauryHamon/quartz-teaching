@@ -55,9 +55,14 @@ lignes */
 
 ```
 ---
-## Indenter son code
+
+## Indenter son code
 
 Peu importe le langage utilisé, le code doit toujours être indenté à chaque nouveau d'imbrication.
+Vous pouvez indenter une ligne ou une sélection de lignes en appuyant sur la touche `tab`. 
+
+À l'inverse pour désindenter, vous pouvez appuyer sur `shift + tab`. 
+
 Par convention, une indentation comporte 2 ou 4 espaces.
 
 ```html
