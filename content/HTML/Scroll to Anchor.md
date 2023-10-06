@@ -28,7 +28,7 @@ Pour cela il faut:
 Dans votre css, appliquez la déclaration suivante sur le parent du lien. Cela permettra de faire un scroll avec transition plutôt qu'un saut instantané dans la page.
 
 ```css
-.parent-element-of-link {
+.parent-element-of-link /* ou '*' pour appliquer à toute votre page */ {
   scroll-behavior: smooth;
 }
 ```
