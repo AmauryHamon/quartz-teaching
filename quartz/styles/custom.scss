@@ -79,6 +79,8 @@ footer {
     left: 0vw;
     padding: 2rem;
     width: 100vw !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
     margin-bottom: 0rem!important;
     height: 6.5vh;
     opacity: 1!important;
