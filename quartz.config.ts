@@ -3,7 +3,7 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Teaching Portal",
+    pageTitle: "Code 101",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
