@@ -5,4 +5,4 @@ tags:
   - initié
 ---
 
-[Sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp)
+Plus d'informations sur [W3Schools](https://www.w3schools.com/howto/howto_css_sticky_element.asp)
