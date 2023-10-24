@@ -1,4 +1,4 @@
-import { QuartzComponentConstructor } from "./types"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
 import script from "./scripts/graph.inline"
 import style from "./styles/graph.scss"
@@ -27,11 +27,11 @@ const defaultOptions: GraphOptions = {
     drag: true,
     zoom: true,
     depth: 1,
-    scale: 2.5,
-    repelForce: .75,
-    centerForce: .5,
-    linkDistance: 10,
-    fontSize: 0.3,
+    scale: 1.1,
+    repelForce: 0.5,
+    centerForce: 0.3,
+    linkDistance: 30,
+    fontSize: 0.6,
     opacityScale: 1,
     showTags: true,
     removeTags: [],
@@ -40,11 +40,11 @@ const defaultOptions: GraphOptions = {
     drag: true,
     zoom: true,
     depth: -1,
-    scale: 4,
-    repelForce: 0.1,
-    centerForce: 0.5,
+    scale: 0.9,
+    repelForce: 0.5,
+    centerForce: 0.3,
     linkDistance: 30,
-    fontSize: 0.3,
+    fontSize: 0.6,
     opacityScale: 1,
     showTags: true,
     removeTags: [],
@@ -52,12 +52,12 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  function Graph() {
+  function Graph({ displayClass }: QuartzComponentProps) {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
-      <div class="graph">
-        {/* <h3>Local Graph View</h3> */}
+      <div class={`graph ${displayClass ?? ""}`}>
+        <h3>Graph View</h3>
         <div class="graph-outer">
           <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <svg

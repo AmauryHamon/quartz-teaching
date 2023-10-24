@@ -19,9 +19,9 @@ function TableOfContents({ fileData, displayClass }: QuartzComponentProps) {
   }
 
   return (
-    <div class={`toc ${displayClass}`}>
+    <div class={`toc ${displayClass ?? ""}`}>
       <button type="button" id="toc">
-        <h3>Dans cette note</h3>
+        <h3>Table of Contents</h3>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
