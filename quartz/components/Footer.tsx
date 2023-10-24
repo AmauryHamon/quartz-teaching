@@ -1,4 +1,4 @@
-import { QuartzComponentConstructor } from "./types"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 
