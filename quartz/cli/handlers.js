@@ -1,4 +1,4 @@
-import { promises } from "fs"
+import { promises, readFileSync } from "fs"
 import path from "path"
 import esbuild from "esbuild"
 import chalk from "chalk"

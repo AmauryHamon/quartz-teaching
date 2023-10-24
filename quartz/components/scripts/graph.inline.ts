@@ -201,6 +201,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       const targ = resolveRelative(fullSlug, d.id)
       window.spaNavigate(new URL(targ, window.location.toString()))
     })
+    
     .on("mouseover", function (_, d) {
       const neighbours: SimpleSlug[] = data[fullSlug].links ?? []
       const neighbourNodes = d3

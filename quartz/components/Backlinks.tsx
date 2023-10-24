@@ -2,11 +2,11 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/backlinks.scss"
 import { resolveRelative, simplifySlug } from "../util/path"
 
-function Backlinks({ fileData, allFiles, displayClass }: QuartzComponentProps) {
+function Backlinks({ fileData, allFiles }: QuartzComponentProps) {
   const slug = simplifySlug(fileData.slug!)
   const backlinkFiles = allFiles.filter((file) => file.links?.includes(slug))
   return (
-    <div class={`backlinks ${displayClass ?? ""}`}>
+    <div class="backlinks">
       <h3>Backlinks</h3>
       <ul class="overflow">
         {backlinkFiles.length > 0 ? (

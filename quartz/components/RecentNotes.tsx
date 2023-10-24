@@ -23,12 +23,13 @@ const defaultOptions = (cfg: GlobalConfiguration): Options => ({
 })
 
 export default ((userOpts?: Partial<Options>) => {
-  function RecentNotes({ allFiles, fileData, displayClass, cfg }: QuartzComponentProps) {
+  function RecentNotes(props: QuartzComponentProps) {
+    const { allFiles, fileData, displayClass, cfg } = props
     const opts = { ...defaultOptions(cfg), ...userOpts }
     const pages = allFiles.filter(opts.filter).sort(opts.sort)
     const remaining = Math.max(0, pages.length - opts.limit)
     return (
-      <div class={`recent-notes ${displayClass ?? ""}`}>
+      <div class={`recent-notes ${displayClass}`}>
         <h3>{opts.title}</h3>
         <ul class="recent-ul">
           {pages.slice(0, opts.limit).map((page) => {

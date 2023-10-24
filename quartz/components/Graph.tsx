@@ -1,4 +1,4 @@
-import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponentConstructor } from "./types"
 // @ts-ignore
 import script from "./scripts/graph.inline"
 import style from "./styles/graph.scss"
@@ -52,12 +52,12 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  function Graph({ displayClass }: QuartzComponentProps) {
+  function Graph() {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
-      <div class={`graph ${displayClass ?? ""}`}>
-        <h3>Graph View</h3>
+      <div class="graph">
+        {/* <h3>Local Graph View</h3> */}
         <div class="graph-outer">
           <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <svg
