@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Code 101</title>
+      <link>https://teaching.amauryhamon.com</link>
+      <description>Last 10 notes on Code 101</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>CSS Chat Bubbles</title>
+    <link>https://teaching.amauryhamon.com/CSS/CSS-Chat-Bubbles</link>
+    <guid>https://teaching.amauryhamon.com/CSS/CSS-Chat-Bubbles</guid>
+    <description>Source: Codepen par Jason Founts See the Pen Chat Bubbles in CSS by Jason Founts (@Founts) on CodePen. .</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>CSS Basics Cheatsheet</title>
+    <link>https://teaching.amauryhamon.com/CSS/CSS-Cheatsheet</link>
+    <guid>https://teaching.amauryhamon.com/CSS/CSS-Cheatsheet</guid>
+    <description>Ceci est une liste non-exhaustive des propriétés de base pour styliser, positionner des éléments. Espacements et dimensions § /* Padding */ div{ padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; padding: 20px; padding: 0 20px; padding: 0 20px 5px 10px; } /* Margin */ div{ margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; margin: 20px; margin: 0 20px; margin: 0 20px 5px 10px; } /* Hauteur/Largeur */ div{ height:300px; /* 100%; 100vh; 100em; Unités responsive */ width:300px; /* 100%; 100vw; 100em; Unités responsive */ } Pour en savoir plus sur les unités relatives, voir Responsive Display § div{ display:none; /* l&#039;élément est complètement retiré.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>CSS Introduction</title>
+    <link>https://teaching.amauryhamon.com/CSS/CSS-Introduction</link>
+    <guid>https://teaching.amauryhamon.com/CSS/CSS-Introduction</guid>
+    <description>CSS: Cascading Style Sheets § Le CSS fait parti des trois languages de programmation pour le web avec le HTML et le Javascript. Si l’on utilise la métaphore d’une maison, on peut imaginer les trois langages comme répondant aux affirmations suivantes: HTML (Hypertext Markup Language): Quelle est la structure de la maison et ce qu’elle contient? Les portes, fenêtres, pièces… CSS (Cascading Style Sheets): A quoi ressemble la maison? Les peintures, textiles, revêtements… JS (Javascript): Comment utilise-t’on la maison? Le chauffage, la lumière… On utilise le CSS pour mettre en forme graphiquement le site internet: définir les couleurs, la typographie, adapter le design au format des navigateurs sur ordinateur, tablette, téléphone.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Flex CSS</title>
+    <link>https://teaching.amauryhamon.com/CSS/Flex</link>
+    <guid>https://teaching.amauryhamon.com/CSS/Flex</guid>
+    <description>Flexbox est une manière de mettre en page les éléments en colonnes et ajuster leurs alignements. Les dimensions des éléments s’adaptent (s’étendent) pour remplir un espace supplémentaire ou rétrécissent pour s’adapter à des espaces plus petits.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Grid CSS</title>
+    <link>https://teaching.amauryhamon.com/CSS/Grid</link>
+    <guid>https://teaching.amauryhamon.com/CSS/Grid</guid>
+    <description>Todo.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Responsive</title>
+    <link>https://teaching.amauryhamon.com/CSS/Responsive</link>
+    <guid>https://teaching.amauryhamon.com/CSS/Responsive</guid>
+    <description>On peut accéder au web depuis n’importe quel type d’appareil. Pour designer une page web, il faut donc prendre en compte qu’on ne design pas que pour un seul moment mais une infinité.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Sticky CSS</title>
+    <link>https://teaching.amauryhamon.com/CSS/Sticky</link>
+    <guid>https://teaching.amauryhamon.com/CSS/Sticky</guid>
+    <description>&lt;nav class=&quot;sticky&quot;&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;partie 1&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;partie 2&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;partie 3&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/nav&gt; .</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>CSS Index</title>
+    <link>https://teaching.amauryhamon.com/CSS/</link>
+    <guid>https://teaching.amauryhamon.com/CSS/</guid>
+    <description></description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Variable Fonts Web</title>
+    <link>https://teaching.amauryhamon.com/CSS/variablefonts</link>
+    <guid>https://teaching.amauryhamon.com/CSS/variablefonts</guid>
+    <description>Les fontes variables permettent de rassembler plusieurs variantes d’une police dans un seul fichier .otf plutôt qu’un fichier par graisse/style comme c’est communément le cas.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item><item>
+    <title>Fontes Web</title>
+    <link>https://teaching.amauryhamon.com/CSS/webfonts</link>
+    <guid>https://teaching.amauryhamon.com/CSS/webfonts</guid>
+    <description>Tout le monde n’a pas les mêmes polices de caractères installées sur son ordinateur, tablette ou téléphone. C’est pourquoi sur un site internet, quand on veut utiliser une police spécifique, il faut l’inclure dans les fichiers du site.</description>
+    <pubDate>Tue, 24 Oct 2023 14:52:54 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
