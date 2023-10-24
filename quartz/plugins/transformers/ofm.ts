@@ -14,6 +14,7 @@ import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
 import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
 import { PhrasingContent } from "mdast-util-find-and-replace/lib"
+import { capitalize } from "../../util/lang"
 
 export interface Options {
   comments: boolean
@@ -104,10 +105,6 @@ function canonicalizeCallout(calloutName: string): keyof typeof callouts {
   return calloutMapping[callout] ?? "note"
 }
 
-const capitalize = (s: string): string => {
-  return s.substring(0, 1).toUpperCase() + s.substring(1)
-}
-
 // !?               -> optional embedding
 // \[\[             -> open brace
 // ([^\[\]\|\#]+)   -> one or more non-special characters ([,],|, or #) (name)
@@ -135,6 +132,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
     const hast = toHast(ast, { allowDangerousHtml: true })!
     return toHtml(hast, { allowDangerousHtml: true })
   }
+
   const findAndReplace = opts.enableInHtmlEmbed
     ? (tree: Root, regex: RegExp, replace?: Replace | null | undefined) => {
         if (replace) {
@@ -399,6 +397,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
           return (tree: Root, file) => {
             const base = pathToRoot(file.data.slug!)
             findAndReplace(tree, tagRegex, (_value: string, tag: string) => {
+              // Check if the tag only includes numbers
+              if (/^\d+$/.test(tag)) {
+                return false
+              }
               tag = slugTag(tag)
               if (file.data.frontmatter && !file.data.frontmatter.tags.includes(tag)) {
                 file.data.frontmatter.tags.push(tag)

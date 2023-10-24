@@ -18,11 +18,13 @@ interface Options {
   markdownLinkResolution: TransformOptions["strategy"]
   /** Strips folders from a link so that it looks nice */
   prettyLinks: boolean
+  openLinksInNewTab: boolean
 }
 
 const defaultOptions: Options = {
   markdownLinkResolution: "absolute",
   prettyLinks: true,
+  openLinksInNewTab: false,
 }
 
 export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> = (userOpts) => {
@@ -51,7 +53,11 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                 let dest = node.properties.href as RelativeURL
                 node.properties.className ??= []
                 node.properties.className.push(isAbsoluteUrl(dest) ? "external" : "internal")
-                node.properties.target = "_blank"
+
+                if (opts.openLinksInNewTab) {
+                  node.properties.target = "_blank"
+                }
+
                 // don't process external links or intra-document anchors
                 const isInternal = !(isAbsoluteUrl(dest) || dest.startsWith("#"))
                 if (isInternal) {
