@@ -1,5 +1,5 @@
 ---
-title: CSS Index
+title: CSS
 draft: false
 tags:
 ---

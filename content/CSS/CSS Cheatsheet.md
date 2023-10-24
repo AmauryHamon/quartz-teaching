@@ -4,6 +4,7 @@ draft: false
 tags:
   - cheatsheet
   - débutant
+  - CSS
 ---
 
 Ceci est une liste non-exhaustive des propriétés de base pour styliser, positionner des éléments.

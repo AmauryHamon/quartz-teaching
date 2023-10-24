@@ -1,9 +1,11 @@
 ---
-title: Scroll to Anchor
+title: Lien pour scroller dans la page
 draft: false
 tags:
 - initié
 - snippet
+- HTML
+- CSS
 ---
 
 Une balise de lien peut emmener à différentes partie d'une même page à l'aide d'attributs ID.

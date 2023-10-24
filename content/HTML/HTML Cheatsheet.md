@@ -4,6 +4,7 @@ draft: false
 tags:
   - cheatsheet
   - débutant
+  - HTML
 ---
 
 Source: [Site web de Paul Copplestone](https://paul.copplest.one/knowledge/tech/html-cheatsheet.html)

@@ -4,6 +4,7 @@ draft: false
 tags:
   - essentiels
   - débutant
+  - HTML
 ---
 
 ## HTML: Hypertext Markup Language

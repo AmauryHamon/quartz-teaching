@@ -4,6 +4,7 @@ draft: false
 tags:
   - initié
   - essentiels
+  - CSS
 ---
 
 Les fontes variables permettent de rassembler plusieurs variantes d'une police dans un seul fichier `.otf` plutôt qu'un fichier par graisse/style comme c'est communément le cas. Leur utilisation en CSS est similaire aux [[webfonts]] classiques mais possèdent des propriétés CSS supplémentaires. 

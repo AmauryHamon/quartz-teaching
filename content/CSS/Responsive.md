@@ -3,6 +3,7 @@ title: Responsive
 draft: false
 tags:
   - initié
+  - CSS
 ---
 
 On peut accéder au web depuis n'importe quel type d'appareil. Pour designer une page web, il faut donc prendre en compte qu'on ne design pas que pour un seul moment mais une infinité.

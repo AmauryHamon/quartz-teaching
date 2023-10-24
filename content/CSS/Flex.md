@@ -3,6 +3,7 @@ title: Flex CSS
 draft: false
 tags:
   - initié
+  - CSS
 ---
 
 Flexbox est une manière de mettre en page les éléments en colonnes et ajuster leurs alignements. Les dimensions des éléments s'adaptent (s'étendent) pour remplir un espace supplémentaire ou rétrécissent pour s'adapter à des espaces plus petits.

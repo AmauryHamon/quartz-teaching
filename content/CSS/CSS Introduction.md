@@ -4,6 +4,7 @@ draft: false
 tags:
   - débutant
   - essentiels
+  - CSS
 ---
 
 ## CSS: Cascading Style Sheets

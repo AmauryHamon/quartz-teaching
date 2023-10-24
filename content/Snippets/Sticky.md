@@ -1,8 +1,10 @@
 ---
-title: Sticky CSS
+title: Élément Sticky CSS
 draft: false
 tags:
   - initié
+  - HTML
+  - CSS
 ---
 
 ```html 

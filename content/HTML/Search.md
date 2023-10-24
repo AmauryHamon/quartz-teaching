@@ -4,6 +4,7 @@ draft: false
 tags:
 - initié
 - snippet
+- HTML
 ---
 
 ## HTML 
