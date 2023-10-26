@@ -5,19 +5,15 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.PageTitle(),Component.MobileOnly(Component.Spacer()),Component.Search(),Component.Darkmode(),],
-  footer: Component.Footer({
-    links: {
-      "email": "mailto:amaury.hamon@eduvaud.ch",
-      // "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
-  }),
+  footer: Component.Footer({links: {"email": "mailto:amaury.hamon@eduvaud.ch"},}), 
 }
 
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [Component.ArticleTitle(), Component.Breadcrumbs(), Component.ContentMeta(), Component.TagList()],
+  afterBody: [Component.RecentNotes()],
   left: [ 
-    Component.DesktopOnly(Component.Explorer()), Component.DesktopOnly(Component.TableOfContents())
+    Component.DesktopOnly(Component.Explorer()), Component.DesktopOnly(Component.TableOfContents()),
   ],
   right: [Component.Graph(), Component.Backlinks()],
 }
@@ -25,6 +21,7 @@ export const defaultContentPageLayout: PageLayout = {
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.ArticleTitle(), Component.Breadcrumbs(), Component.ContentMeta(), Component.TagList()],
+  afterBody: [Component.RecentNotes()],
   left: [Component.DesktopOnly(Component.Explorer())],
   right: [Component.Graph(), Component.Backlinks()],
 }
