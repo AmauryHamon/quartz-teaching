@@ -36,7 +36,7 @@ export default ((userOpts?: Partial<Options>) => {
     return (
       <div class={`recent-notes ${displayClass ?? ""}`}>
         <hr></hr>
-        <h3>{opts.title}</h3>
+        <h2>{opts.title}</h2>
         {/* <ul class="recent-ul"> */}
         <ul class="section-ul">
           {pages.slice(0, opts.limit).map((page) => {
