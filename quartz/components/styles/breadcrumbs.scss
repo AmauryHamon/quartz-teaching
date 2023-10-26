@@ -9,11 +9,15 @@
 }
 
 .breadcrumb-element {
+  a {
+    color: var(--lightgray);
+  }
   p {
     margin: 0;
     margin-left: 0.5rem;
     padding: 0;
     line-height: normal;
+    color: var(--lightgray);
   }
   display: flex;
   flex-direction: row;

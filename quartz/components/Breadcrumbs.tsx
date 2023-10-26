@@ -28,7 +28,7 @@ interface BreadcrumbOptions {
 }
 
 const defaultOptions: BreadcrumbOptions = {
-  spacerSymbol: ">",
+  spacerSymbol: "/",
   rootName: "Home",
   resolveFrontmatterTitle: false,
   hideOnRoot: true,
@@ -96,10 +96,10 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       }
 
       // Add current file to crumb (can directly use frontmatter title)
-      crumbs.push({
-        displayName: fileData.frontmatter!.title,
-        path: "",
-      })
+      // crumbs.push({
+      //   displayName: fileData.frontmatter!.title,
+      //   path: "",
+      // })
     }
     return (
       <nav class={`breadcrumb-container ${displayClass ?? ""}`} aria-label="breadcrumbs">
