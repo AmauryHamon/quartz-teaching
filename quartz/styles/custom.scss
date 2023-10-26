@@ -20,7 +20,7 @@ h1 {
     color: var(--lightgray) !important;
 }
 .tags{
-    gap: 0rem!important;
+    column-gap: 0rem!important;
 }
 a.tag-link {
     border-radius: 15px !important;
