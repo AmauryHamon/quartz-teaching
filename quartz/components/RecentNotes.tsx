@@ -15,8 +15,8 @@ interface Options {
 }
 
 const defaultOptions = (cfg: GlobalConfiguration): Options => ({
-  title: "Recent Notes",
-  limit: 3,
+  title: "Notes récentes",
+  limit: 5,
   linkToMore: false,
   filter: () => true,
   sort: byDateAndAlphabetical(cfg),
@@ -25,19 +25,33 @@ const defaultOptions = (cfg: GlobalConfiguration): Options => ({
 export default ((userOpts?: Partial<Options>) => {
   function RecentNotes({ allFiles, fileData, displayClass, cfg }: QuartzComponentProps) {
     const opts = { ...defaultOptions(cfg), ...userOpts }
+    // filter out for everything except index, code from jzhao's site
+      if (fileData.slug !== "index") {
+        return <></>
+      }
+
     const pages = allFiles.filter(opts.filter).sort(opts.sort)
     const remaining = Math.max(0, pages.length - opts.limit)
+    
     return (
       <div class={`recent-notes ${displayClass ?? ""}`}>
+        <hr></hr>
         <h3>{opts.title}</h3>
-        <ul class="recent-ul">
+        {/* <ul class="recent-ul"> */}
+        <ul class="section-ul">
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title
             const tags = page.frontmatter?.tags ?? []
 
             return (
-              <li class="recent-li">
+              // <li class="recent-li">
+              <li class="section-li">
                 <div class="section">
+                  {page.dates && (
+                    <p class="meta">
+                      <Date date={getDate(cfg, page)!} />
+                    </p>
+                  )}
                   <div class="desc">
                     <h3>
                       <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
@@ -45,11 +59,7 @@ export default ((userOpts?: Partial<Options>) => {
                       </a>
                     </h3>
                   </div>
-                  {page.dates && (
-                    <p class="meta">
-                      <Date date={getDate(cfg, page)!} />
-                    </p>
-                  )}
+                  
                   <ul class="tags">
                     {tags.map((tag) => (
                       <li>
