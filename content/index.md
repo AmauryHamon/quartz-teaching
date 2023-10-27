@@ -15,5 +15,6 @@ Pour vous nourrir de références graphiques je vous conseille d'utiliser la pla
 Pour toutes questions ou remarques, n'hésitez pas à [me contacter par email](mailto:amaury.hamon@eduvaud.ch)
 
 Quelques points de départ: 
+
 [[HTML Introduction]][[CSS Introduction]]
 [Débutant](/tags/débutant) [Essentiels](/tags/essentiels)
