@@ -16,7 +16,7 @@ Un *conteneur* de grille contient des *éléments* de grille .
 
 Par défaut, un conteneur comporte un élément de grille pour chaque colonne, dans chaque ligne, mais vous pouvez styliser les éléments de grille afin qu'ils s'étendent sur plusieurs colonnes et/ou lignes.
 
-## Propriété grid-column
+## grid-column
 
 La propriété `grid-column` définit sur quelle(s) colonne(s) placer un élément. Vous définissez où l'élément commencera et où l'élément se terminera.
 
@@ -42,7 +42,7 @@ Pour placer un élément, vous pouvez vous référer aux *numéros de ligne* ou 
 ```
 
 
-## Propriété grid-row
+## grid-row
 
 La propriété `grid-row` définit sur quelle ligne placer un élément. Vous définissez où l'élément commencera et où l'élément se terminera.
 
@@ -67,7 +67,7 @@ Pour placer un élément, vous pouvez vous référer aux *numéros de ligne* ou 
 }
 ```
 
-## La propriété grid-area
+## grid-area
 
 La propriété `grid-area` peut être utilisée comme propriété abrégée pour les propriétés `grid-row-start`, `grid-column-start`, `grid-row-end` et `grid-column-end`.
 
@@ -141,7 +141,7 @@ Pour définir deux lignes, définissez la colonne de la deuxième ligne à l'int
 }
 ```
 
-## Ordre des articles
+## Ordonner des articles
 
 La disposition en grille nous permet de positionner les éléments où nous le souhaitons. Il n'est pas nécessaire que le premier élément du code HTML apparaisse comme premier élément de la grille.
 

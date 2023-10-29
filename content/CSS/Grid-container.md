@@ -12,9 +12,9 @@ Autres articles sur les grilles CSS: [[Grid-intro]] [[Grid-elements]]
 
 # Réglages du conteneur de grille
 
-## Spécifier le nombre et taille de colonnes/rangées
+## Nombre et taille de colonnes/rangées
 
-### Propriété grid-template-columns
+### grid-template-columns
 
 La propriété `grid-template-columns` définit le nombre de colonnes dans votre disposition de grille et peut définir la largeur de chaque colonne.
 
@@ -43,7 +43,7 @@ La propriété `grid-template-columns` peut également être utilisée pour spé
 }
 ```
 
-### Grid-template-rows
+### grid-template-rows
 
 La propriété `grid-template-rows` définit la hauteur de chaque ligne.
 La valeur est une liste séparée par des espaces, où chaque valeur définit la hauteur de la ligne respective:
@@ -57,7 +57,7 @@ La valeur est une liste séparée par des espaces, où chaque valeur définit la
 }
 ```
 
-## Aligner verticalement ou horizontalement la grille dans son conteneur
+## Aligner la grille dans son conteneur
 
 ### justify-content
 
