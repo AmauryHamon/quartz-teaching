@@ -1,5 +1,5 @@
 ---
-title: 1. Introduction Grid CSS
+title: 1. Introduction
 draft: false
 tags:
   - initié

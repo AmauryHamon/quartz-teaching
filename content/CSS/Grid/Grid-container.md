@@ -1,5 +1,5 @@
 ---
-title: 2. Grid CSS Conteneur
+title: 2. Conteneur
 draft: false
 tags:
   - initié

@@ -1,5 +1,5 @@
 ---
-title: 3. Grid CSS Eléments
+title: 3. Eléments
 draft: false
 tags:
   - initié
