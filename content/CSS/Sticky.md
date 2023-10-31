@@ -1,5 +1,5 @@
 ---
-title: Élément Sticky CSS
+title: Position Sticky CSS
 draft: false
 tags:
   - initié
