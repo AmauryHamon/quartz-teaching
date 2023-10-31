@@ -66,18 +66,24 @@ La propriété CSS position définit la façon dont un élément est positionné
 ```css
 div{
 position: static;
-/* Comportement normal (par défaut). L'élément est alors positionné dans le flux avec sa position. */
+/* Comportement normal (par défaut). 
+L'élément est alors positionné dans le flux avec sa position. */
 
 position: fixed;
-/* L'élément est retiré du flux normal et aucun espace n'est laissé pour l'élément. L'élément est positionné relativement au bloc englobant initial formé par la zone d'affichage (viewport) */
+/* L'élément est retiré du flux normal et aucun espace n'est laissé pour l'élément. 
+L'élément est positionné relativement au bloc englobant initial formé par la zone d'affichage (viewport) */
 
 
 position: absolute;
-/* L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page. Il est ensuite positionné par rapport à son ancêtre le plus proche qui est positionné s'il y en a un ou par rapport au bloc englobant initial sinon. La position finale de l'élément est déterminée par les valeurs de top, right, bottom et left. */
+/* L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page. 
+Il est ensuite positionné par rapport à son ancêtre le plus proche qui est positionné 
+s'il y en a un ou par rapport au bloc englobant initial sinon. 
+La position finale de l'élément est déterminée par les valeurs de top, right, bottom et left. */
 
 
 position: relative;
-/* L'élément est positionné dans le flux normal du document puis décalé, par rapport à lui-même, selon les valeurs fournies par top, right, bottom et left.  */
+/* L'élément est positionné dans le flux normal du document puis décalé, 
+par rapport à lui-même, selon les valeurs fournies par top, right, bottom et left.  */
 
 }
 ```
