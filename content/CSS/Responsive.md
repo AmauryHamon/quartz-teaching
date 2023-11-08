@@ -1,5 +1,5 @@
 ---
-title: Responsive
+title: Responsive Introduction
 draft: false
 tags:
   - initié
