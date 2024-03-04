@@ -19,6 +19,8 @@ La mise en page est controllée par deux options dans l'interface, `Default Page
 
 Dans ces options, nous pouvons ajuster la hauteur et largeur du contenu, les marges autour, l'alignement horizontal et vertical du contenu et textes, les arrières-plans de la page (sans marges) et du contenu (avec marges)
 
+---
+
 # Menu Pages et Sets
 
 Un site est un ensemble de pages connectées avec des liens. Dans Cargo, le menu `Pages and Sets` permet de vous y retrouver dans votre site. 
@@ -34,6 +36,8 @@ Un site est un ensemble de pages connectées avec des liens. Dans Cargo, le menu
 - [Overlay](https://docs.cargo.site/overlays): On peut faire apparaitre une page par dessus tout le contenu du site 
 - Settings: On peut mettre des tags à chaque pages et assigner une image de couverture
 
+---
+
 # Linker des pages
 
 Pour lier des pages ensemble il faut utiliser le menu de link. Cela peut être des liens vers des pages, des tags, des liens externes, adresse email, page suivante/précédente, etc.
@@ -42,9 +46,13 @@ Pour lier des pages ensemble il faut utiliser le menu de link. Cela peut être d
 
 ![](/files/cargo-link.png)
 
+---
+
 # Tags
 
 Les tags vous permettent de filtrer le contenu de votre site. Ces tags s'assignent dans les réglages de chaque page. Vous pouvez ensuite faire des liens vers ces tags, ou créer des pages avec un thumbnail index listant les pages tagguées.
+
+---
 
 # Ajout de blocs
 
@@ -73,17 +81,23 @@ Similaire aux galleries, celles-ci redirigent vers une sélection de pages de vo
 
 [Documentation Cargo](https://docs.cargo.site/thumbnail-index)
 
-# Backdrops
+---
+
+# Backdrops (Arrière-plans)
 
 Les options de backdrops permettent un arrière-plan derrière le contenu d'une page, ce qui permet notamment la création de slideshow pleine page en choisissant le mode "Wallpaper"
 
 [Documentation Cargo](https://docs.cargo.site/backdrops)
+
+---
 
 # Quick View (Lightbox)
 
 Quick View permet de cliquer sur une image et la voir en isolation avec un overlay. Vous pouvez styliser l'apparence de Quick View dans les réglages du site.
 
 [Documentation Cargo](https://docs.cargo.site/quick-view)
+
+---
 
 # Mobile
 

@@ -8,12 +8,11 @@ tags:
 
 # Editer un site cargo à plusieurs
 
-### Méthode pour inviter d'autres utilisateurs:
-
 Afin de travailler ensemble et que je puisse suivre le développement de votre site à distance si besoin, veuillez m'inviter comme éditeur. [Documentation ici](https://docs.cargo.site/collaborating)
+
 ![inviter des utilisateur·icexs](/files/Cargo-Invite-Editors.gif)
 
-
+---
 
 # Publier un site Cargo
 
@@ -30,6 +29,7 @@ Dérouler le menu déroulant, et cliquer dans `Add a payment method`
 
 ![2e méthode](/files/Cargo-Renouvelement_nom_de_Domaine.jpg)
 
+---
 
 # Utiliser son propre nom de domaine
 

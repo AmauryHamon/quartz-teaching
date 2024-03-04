@@ -26,13 +26,13 @@ Voici les liens importants pour découvrir son fonctionnement:
 - Prendre connaissance de la [documentation](https://docs.cargo.site/)
 - Regarder des [exemples](https://cargo.site/In-Use) et les [templates](https://u.cargo.site/designlab) à disposition
 
+---
+
 # Interface de Cargo
 
 Voici les options disponibles dans l'interface de Cargo au démarrage d'un site:
 
 ![](/files/cargo-ui.png)
-
-Les principales options à étudier sont
 
 - Options de pages par défaut et de page locale
 - Menus de pages et sets
