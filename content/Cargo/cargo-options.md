@@ -13,11 +13,11 @@ La mise en page est controllée par deux options dans l'interface, `Default Page
 - **Default Page Settings** (options par défaut des pages) applique des changements à toutes les nouvelles pages, sauf si elle contient des modifications locales
 - **Local Page Settings** (options de page locale) applique des changements uniquement à la page éditée
 
-![](/files/cargo-defaut-local-page-settings.png)
+Dans ces options, nous pouvons ajuster la hauteur et largeur du contenu, les marges autour, l'alignement horizontal et vertical du contenu et textes, les arrières-plans de la page (sans marges) et du contenu (avec marges)
 
 [Documentation Cargo](https://docs.cargo.site/site-and-page-layout)
 
-Dans ces options, nous pouvons ajuster la hauteur et largeur du contenu, les marges autour, l'alignement horizontal et vertical du contenu et textes, les arrières-plans de la page (sans marges) et du contenu (avec marges)
+![](/files/cargo-defaut-local-page-settings.png)
 
 ---
 
@@ -48,7 +48,7 @@ Pour lier des pages ensemble il faut utiliser le menu de link. Cela peut être d
 
 ---
 
-# Tags
+# Tags
 
 Les tags vous permettent de filtrer le contenu de votre site. Ces tags s'assignent dans les réglages de chaque page. Vous pouvez ensuite faire des liens vers ces tags, ou créer des pages avec un thumbnail index listant les pages tagguées.
 
@@ -74,7 +74,6 @@ Les galleries permettent de mettre des séquences de media (images/autres) selon
 
 ![](/files/cargo-galleries.png)
 
-
 ## Thumbnail Index
 
 Similaire aux galleries, celles-ci redirigent vers une sélection de pages de votre site. Par défaut un index contient toutes les pages de votre site mais vous pouvez filtrer par Sets ou par Tags. Pour un index avec images, il faut assigner dans les réglages de chaque page une image vignette.
@@ -99,7 +98,7 @@ Quick View permet de cliquer sur une image et la voir en isolation avec un overl
 
 ---
 
-# Mobile
+# Mobile
 
 Lorsque l'on passe du mode desktop à mobile, des options s'offrent à nous pour changer l'aspect du site, par exemple
 - Changer la taille des style de texte sur mobile
