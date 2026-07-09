@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: en-US
+  locale: fr-FR
   baseUrl: teaching.amauryhamon.com
   ignorePatterns:
     - private
