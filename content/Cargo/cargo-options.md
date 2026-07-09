@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités Cargo 
-draft: false
+draft: true
 tags:
 - essentiels
 - débutant
