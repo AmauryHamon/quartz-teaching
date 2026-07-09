@@ -213,6 +213,8 @@ plugins:
       position: beforeBody
       priority: 5
       condition: not-index
+    options:
+      spacerSymbol: "▞"
   - source: github:quartz-community/comments
     enabled: false
     options:
