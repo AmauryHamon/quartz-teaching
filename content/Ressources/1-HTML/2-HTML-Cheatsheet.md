@@ -75,7 +75,7 @@ Source: [Site web de Paul Copplestone](https://paul.copplest.one/knowledge/tech/
 
 ### Titrages
 
-```html
+```interactive
 <h1>Heading 1</h1>  <!-- Un seul dans la page, titre de page -->
 <h2>Heading 2</h2>  <!-- Titre de section -->
 <h3>Heading 3</h3>  <!-- Titres de sous-section -->
@@ -84,21 +84,27 @@ Source: [Site web de Paul Copplestone](https://paul.copplest.one/knowledge/tech/
 <h6>Heading 6</h6>
 ```
 
-### Body content
+### Formattage du texte
 
-```html
+```interactive
 <p>Paragraphe</p>
-<strong>Texte Bold</strong>
-<em>Texte Italic</em>
+<strong>Texte Bold</strong><br>
+<s>Texte barré</s><br>
+<em>Texte Italic</em><br>
 <blockquote>Une citation/callout</blockquote>
-<code>Ligne de code</code>
-<pre>A bloc multiligne de code</pre>
-<br> <!-- Un saut de ligne -->
+<code>Ligne de code</code><br>
+Exposant<sup>1</sup><br>
+Indice<sub>1</sub><br>
+<u>Texte souligné</u>
+<pre>Un bloc 
+multiligne 
+de code</pre>
+Un saut<br>de ligne <!-- Un saut de ligne -->
 <hr> <!-- Une barre horizontale -->
 
 ```
 
-### Balises spéciales
+### Liens et images
 
 ```html
 <!-- Liens (Anchor) -->
@@ -115,35 +121,24 @@ Pour faire un lien vers une autre section de contenu dans une même page voir [[
 
 ### Listes
 
-```html
-<li>List item 1</li> <!-- Entrée de Liste  -->
+```interactive
 
 <!-- Liste non-ordonnée (à puces) -->
 <ul>
     <!-- Items  -->
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
 </ul> 
 
 <!-- Liste ordonnée (à chiffres/lettres, etc.) -->
 <ol>
     <!-- Items  -->
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
 </ol> 
 ```
-
-<details>
-<summary>Ouvrir l'exemple</summary>
-
-```html
-<ul>
-    <li>List item 1</li>
-    <li>List item 2</li>
-</ul>
-<ol>
-    <li>List item 1</li>
-    <li>List item 2</li>
-</ol>
-```
-
-</details>
 
 ---
 
