@@ -8,3 +8,29 @@
     font-style: normal;
     font-display: swap;
 }
+
+.page {
+    max-width: 100%;
+    & .center, footer>* {
+        min-width: auto;
+        max-width: 1024px;
+        margin: 0 auto;
+        & .markdown-rendered > *:not(hr){
+            max-width: 70ch;
+            &:has(img), &:has(iframe), &:has(video)  {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .page .center {
+        max-width: 100%;
+    }   
+}
+
+ul.toc-content.overflow > li > a:hover, .explorer-content ul li>a:hover {
+    opacity: 1;
+
+}
