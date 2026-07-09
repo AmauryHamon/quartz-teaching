@@ -36,6 +36,28 @@
     margin-top: 2rem;
 }
 
+// Site title
+
+.page-title {
+    white-space: nowrap;
+    border-right: 3px solid;
+    flex: none;
+    animation: 2s steps(7, end) typing, .5s step-end infinite alternate blink;
+    overflow: hidden;
+    width: 7ch !important;
+}
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+@keyframes blink {
+    50% {
+    border-color: #0000;
+    }
+}
+
+// Page title
 .article-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1;
@@ -60,21 +82,46 @@
             }
         }
     }
+    & #quartz-body footer {
+        min-width: auto;
+        max-width: 1024px;
+        margin: 0 auto 2rem;
+        &>* {
+            width: 100%;
+
+        }
+    }
     
 }
 
-@media (max-width: 1200px) {
-    .page .center {
-        max-width: 100%;
-    }   
-}
+// @media (max-width: 1200px) {
+//     .page {
+//         & .center {
+//             max-width: 768px;
+//         }   
+//         & #quartz-body > .center, #quartz-body footer {
+//             min-width: auto;
+//             max-width: 100%;
+//             margin: 0 auto 2rem;
+            
+//             & > * {
+//                 max-width: 70ch;
+//                 min-width: auto;
 
+//             }
+//         }
+//     }
+// }
+// LINKS Styling
 ul.toc-content.overflow > li > a:hover, .explorer-content ul li>a:hover {
     opacity: 1;
 
 }
 
 a {
+    &.internal {
+        padding: 0 .25rem;
+    }
     &.external {
         & .external-icon > path {
             fill: var(--highlight);
