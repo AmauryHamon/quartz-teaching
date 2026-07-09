@@ -13,11 +13,11 @@ configuration:
     - templates
     - .obsidian
   theme:
-    fontOrigin: googleFonts
-    cdnCaching: true
+    fontOrigin: local
+    cdnCaching: false
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
+      header: "SCWalla-Regular"
+      body: "SCWalla-Regular"
       code: IBM Plex Mono
     colors:
       lightMode:
