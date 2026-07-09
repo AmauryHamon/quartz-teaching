@@ -35,6 +35,16 @@
 .page-header {
     margin-top: 2rem;
 }
+
+.article-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-top: 4rem;
+}
+@media (max-width: 1200px) {
+    .article-title {
+        margin-top: 2rem;
+    }
 }
 
 .page {
