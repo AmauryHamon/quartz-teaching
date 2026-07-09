@@ -73,3 +73,12 @@ ul.toc-content.overflow > li > a:hover, .explorer-content ul li>a:hover {
     opacity: 1;
 
 }
+
+a {
+    &.external {
+        & .external-icon > path {
+            fill: var(--highlight);
+            color: var(--highlight);
+        }
+    }
+}
