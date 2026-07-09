@@ -1,0 +1,20 @@
+{
+  "name": "interactive-embed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Renders ```interactive fenced code blocks as sandboxed iframe demos",
+  "main": "./dist/index.js",
+  "quartz": {
+    "name": "interactive-embed",
+    "displayName": "Interactive Embed",
+    "description": "Renders ```interactive fenced code blocks as sandboxed iframe demos",
+    "category": "transformer",
+    "version": "1.0.0",
+    "defaultOrder": 15,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "defaultHeight": 400
+    }
+  }
+}

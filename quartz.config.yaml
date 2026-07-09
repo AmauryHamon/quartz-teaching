@@ -50,6 +50,11 @@ plugins:
         - git
         - filesystem
     order: 10
+  - source: ./quartz/plugins/local/interactive-embed
+    enabled: true
+    options:
+      defaultHeight: 400
+    order: 15
   - source: github:quartz-community/syntax-highlighting
     enabled: true
     options:

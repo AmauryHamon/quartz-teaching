@@ -157,6 +157,12 @@
       "commit": "0d448f38a24c568c5539ff2cd57d813293430ccd",
       "installedAt": "2026-07-08T13:24:45.112Z"
     },
+    "interactive-embed": {
+      "source": "./quartz/plugins/local/interactive-embed",
+      "resolved": "/Users/amauryhamon/code/www/quartz-teaching/quartz/plugins/local/interactive-embed",
+      "commit": "local",
+      "installedAt": "2026-07-09T12:21:05.144Z"
+    },
     "latex": {
       "source": "github:quartz-community/latex",
       "resolved": "https://github.com/quartz-community/latex.git",
