@@ -49,17 +49,18 @@
 
 .page {
     max-width: 100%;
-    & .center, footer>* {
+    & .center {
         min-width: auto;
         max-width: 1024px;
         margin: 0 auto;
-        & .markdown-rendered > *:not(hr){
+        & .markdown-rendered > *:not(hr, figure){
             max-width: 70ch;
             &:has(img), &:has(iframe), &:has(video)  {
                 max-width: 100%;
             }
         }
     }
+    
 }
 
 @media (max-width: 1200px) {
