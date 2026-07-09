@@ -1,10 +1,12 @@
-// Hand-authored (no build step): turns ```interactive fenced code blocks into
-// a Preview/Code tab widget so HTML/CSS/JS snippets can run inline in notes
-// while still showing the source that produced them. Runs before the
-// syntax-highlighting transformer (order 15 < 20): the preview iframe is
-// fully assembled before rehype-pretty-code ever sees the node, but the
-// injected code panel is a normal `pre>code` block, so rehype-pretty-code
-// still highlights it (and the clipboard-copy button still attaches to it).
+// Hand-authored (no build step): turns ```interactive fenced code blocks (or
+// a run of ```lang:filename fenced code blocks, e.g. ```html:index.html,
+// ```css:style.css, ```js:script.js) into a Preview/file-tabs widget so
+// HTML/CSS/JS snippets can run inline in notes while still showing the
+// source that produced them. Runs before the syntax-highlighting transformer
+// (order 15 < 20): the preview iframe is fully assembled before
+// rehype-pretty-code ever sees the node, but the injected code panels are
+// normal `pre>code` blocks, so rehype-pretty-code still highlights them (and
+// the clipboard-copy button still attaches to them).
 
 const LANGUAGE_CLASS = "language-interactive"
 const MESSAGE_TYPE = "quartz-interactive-resize"
@@ -67,6 +69,7 @@ function embedStyle(defaultHeight) {
 }
 .interactive-embed .interactive-embed-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem;
   padding: 0.375rem 0.5rem;
   border-bottom: 1px solid var(--lightgray);
@@ -114,15 +117,21 @@ function getCodeText(node) {
   return text
 }
 
-function buildSrcDoc(source) {
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function buildSrcDoc({ body, headExtra = "", bodyAppend = "" }) {
   return `<!doctype html>
 <html>
 <head>
 <meta charset="utf-8" />
 <style>html,body{margin:0;padding:0.75rem;font-family:system-ui,sans-serif;}</style>
+${headExtra}
 </head>
 <body>
-${source}
+${body}
+${bodyAppend}
 <script>
 function reportHeight() {
   parent.postMessage({ type: ${JSON.stringify(MESSAGE_TYPE)}, height: document.documentElement.scrollHeight }, "*")
@@ -142,87 +151,188 @@ function isInteractiveCodeBlock(node) {
   return Array.isArray(classNames) && classNames.includes(LANGUAGE_CLASS)
 }
 
+// Matches fenced blocks written as ```html:index.html, ```css:style.css, ```js:script.js
+const FILE_BLOCK_PATTERN = /^language-([a-z0-9]+):(.+)$/i
+
+function parseFileBlock(node) {
+  if (!node || node.type !== "element" || node.tagName !== "pre") return null
+  const code = node.children[0]
+  if (!code || code.type !== "element" || code.tagName !== "code") return null
+  const classNames = code.properties?.className ?? []
+  if (!Array.isArray(classNames)) return null
+  for (const className of classNames) {
+    const match = FILE_BLOCK_PATTERN.exec(className)
+    if (match) {
+      return { lang: match[1].toLowerCase(), filename: match[2], source: getCodeText(code) }
+    }
+  }
+  return null
+}
+
+// remark-rehype (with allowDangerousHtml) inserts a whitespace-only text node between
+// every pair of block-level siblings, so "consecutive" blocks aren't literally adjacent
+// array entries — this skips over those separators when looking for the next file block.
+function isWhitespaceText(node) {
+  return !!node && node.type === "text" && (!node.value || node.value.trim() === "")
+}
+
+// Consecutive ```lang:filename blocks starting at startIndex are treated as one group.
+function collectFileGroup(children, startIndex) {
+  const first = parseFileBlock(children[startIndex])
+  if (!first) return null
+  const files = [first]
+  let endIndex = startIndex
+  let i = startIndex + 1
+  while (i < children.length) {
+    if (isWhitespaceText(children[i])) {
+      i++
+      continue
+    }
+    const next = parseFileBlock(children[i])
+    if (!next) break
+    files.push(next)
+    endIndex = i
+    i++
+  }
+  return { files, endIndex }
+}
+
+function buildTabButton(dataTab, label, isActive) {
+  return {
+    type: "element",
+    tagName: "button",
+    properties: {
+      type: "button",
+      className: isActive ? ["interactive-embed-tab", "is-active"] : ["interactive-embed-tab"],
+      dataTab,
+    },
+    children: [{ type: "text", value: label }],
+  }
+}
+
+function buildCodePanel(dataPanel, lang, source) {
+  return {
+    type: "element",
+    tagName: "div",
+    properties: { className: ["interactive-embed-panel"], dataPanel },
+    children: [
+      {
+        type: "element",
+        tagName: "pre",
+        properties: {},
+        children: [
+          {
+            type: "element",
+            tagName: "code",
+            properties: { className: [`language-${lang}`] },
+            children: [{ type: "text", value: source }],
+          },
+        ],
+      },
+    ],
+  }
+}
+
+function buildPreviewPanel(srcDoc) {
+  return {
+    type: "element",
+    tagName: "div",
+    properties: { className: ["interactive-embed-panel", "is-active"], dataPanel: "preview" },
+    children: [
+      {
+        type: "element",
+        tagName: "iframe",
+        properties: {
+          className: ["interactive-embed-frame"],
+          srcDoc,
+          sandbox: "allow-scripts allow-forms allow-modals allow-popups",
+          loading: "lazy",
+        },
+        children: [],
+      },
+    ],
+  }
+}
+
+function buildEmbedContainer(fileTabs, panels) {
+  return {
+    type: "element",
+    tagName: "div",
+    properties: { className: ["interactive-embed"] },
+    children: [
+      {
+        type: "element",
+        tagName: "div",
+        properties: { className: ["interactive-embed-tabs"] },
+        children: [buildTabButton("preview", "Preview", true), ...fileTabs],
+      },
+      ...panels,
+    ],
+  }
+}
+
+function buildLegacyEmbed(source) {
+  return buildEmbedContainer(
+    [buildTabButton("code", "Code", false)],
+    [buildPreviewPanel(buildSrcDoc({ body: source })), buildCodePanel("code", "html", source)],
+  )
+}
+
+// html files become the iframe body; css/js files are inlined into <style>/<script> so the
+// preview works without real network requests, replacing any matching <link>/<script src> tags
+// so notes can still reference "style.css" / "script.js" the way a real project would.
+function buildFileGroupEmbed(files) {
+  const htmlFiles = files.filter((f) => f.lang === "html")
+  const cssFiles = files.filter((f) => f.lang === "css")
+  const jsFiles = files.filter((f) => f.lang === "js")
+
+  let body = htmlFiles.map((f) => f.source).join("\n")
+  for (const f of cssFiles) {
+    const linkPattern = new RegExp(`<link\\b[^>]*href=["']${escapeRegExp(f.filename)}["'][^>]*>`, "gi")
+    body = body.replace(linkPattern, "")
+  }
+  for (const f of jsFiles) {
+    const scriptPattern = new RegExp(
+      `<script\\b[^>]*src=["']${escapeRegExp(f.filename)}["'][^>]*>\\s*</script>`,
+      "gi",
+    )
+    body = body.replace(scriptPattern, "")
+  }
+
+  const headExtra = cssFiles.length ? `<style>\n${cssFiles.map((f) => f.source).join("\n")}\n</style>` : ""
+  const bodyAppend = jsFiles.length ? `<script>\n${jsFiles.map((f) => f.source).join("\n")}\n<\/script>` : ""
+
+  return buildEmbedContainer(
+    files.map((f) => buildTabButton(f.filename, f.filename, false)),
+    [
+      buildPreviewPanel(buildSrcDoc({ body, headExtra, bodyAppend })),
+      ...files.map((f) => buildCodePanel(f.filename, f.lang, f.source)),
+    ],
+  )
+}
+
 function replaceInteractiveBlocks(tree) {
   const visit = (node) => {
     const children = node.children
     if (!children) return
+    const newChildren = []
     for (let i = 0; i < children.length; i++) {
       const child = children[i]
       if (isInteractiveCodeBlock(child)) {
-        const code = child.children[0]
-        const source = getCodeText(code)
-        children[i] = {
-          type: "element",
-          tagName: "div",
-          properties: { className: ["interactive-embed"] },
-          children: [
-            {
-              type: "element",
-              tagName: "div",
-              properties: { className: ["interactive-embed-tabs"] },
-              children: [
-                {
-                  type: "element",
-                  tagName: "button",
-                  properties: {
-                    type: "button",
-                    className: ["interactive-embed-tab", "is-active"],
-                    dataTab: "preview",
-                  },
-                  children: [{ type: "text", value: "Preview" }],
-                },
-                {
-                  type: "element",
-                  tagName: "button",
-                  properties: { type: "button", className: ["interactive-embed-tab"], dataTab: "code" },
-                  children: [{ type: "text", value: "Code" }],
-                },
-              ],
-            },
-            {
-              type: "element",
-              tagName: "div",
-              properties: { className: ["interactive-embed-panel", "is-active"], dataPanel: "preview" },
-              children: [
-                {
-                  type: "element",
-                  tagName: "iframe",
-                  properties: {
-                    className: ["interactive-embed-frame"],
-                    srcDoc: buildSrcDoc(source),
-                    sandbox: "allow-scripts allow-forms allow-modals allow-popups",
-                    loading: "lazy",
-                  },
-                  children: [],
-                },
-              ],
-            },
-            {
-              type: "element",
-              tagName: "div",
-              properties: { className: ["interactive-embed-panel"], dataPanel: "code" },
-              children: [
-                {
-                  type: "element",
-                  tagName: "pre",
-                  properties: {},
-                  children: [
-                    {
-                      type: "element",
-                      tagName: "code",
-                      properties: { className: ["language-html"] },
-                      children: [{ type: "text", value: source }],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        }
+        const source = getCodeText(child.children[0])
+        newChildren.push(buildLegacyEmbed(source))
+        continue
+      }
+      const group = collectFileGroup(children, i)
+      if (group) {
+        newChildren.push(buildFileGroupEmbed(group.files))
+        i = group.endIndex
         continue
       }
       visit(child)
+      newChildren.push(child)
     }
+    node.children = newChildren
   }
   visit(tree)
 }

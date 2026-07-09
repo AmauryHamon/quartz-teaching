@@ -21,3 +21,16 @@ Test note for the `interactive` fenced code block.
   })
 </script>
 ```
+test
+
+```html:index.html
+<h1>Hi</h1>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+```
+```css:style.css
+h1 { color: teal; }
+```
+```js:script.js
+console.log("hi")
+```
