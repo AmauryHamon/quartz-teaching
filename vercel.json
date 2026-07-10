@@ -1,3 +1,4 @@
 {
-    "cleanUrls": true
-  }
+  "buildCommand": "npx quartz plugin install --from-config && npx quartz build",
+  "cleanUrls": true
+}
