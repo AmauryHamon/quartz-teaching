@@ -1,6 +1,6 @@
 ---
 title: JS Accordions
-draft: false
+draft: true
 tags:
   - advanced
   - js
