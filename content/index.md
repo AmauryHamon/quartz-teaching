@@ -2,19 +2,15 @@
 title: Hello World
 ---
 
-Ce site compile des ressources éduvatives dans le cadre de mon enseignement à l'ERACOM pour le cours multimédias visant à la conception graphique de médias numériques.
+Ce site compile des ressources éducatives pour le design graphique et la programmation web et créative, dans le cadre d'enseignements à la HEAD–Genève.
 
-Ces apprentissages permettront pour des élèves en graphisme de créer des sites internet avec du code, en se concentrant sur la partie graphique et le design d'intéractions.
+Ces apprentissages permettront pour des étudiant·e·x·s débutant·e·x·s ou confirmé·e·x·s, d'utiliser le code comme outil de création graphique, de créer des sites internet, et d'expérimenter avec la programmation créative.
 
-Regardez bien la documentation et servez-vous des blocs de code dans vos projets en vous aidant des commentaires notés dans le code pour veiller à une bonne compréhension.
+Pour toutes questions ou remarques, n'hésitez pas à [me contacter par email](mailto:amaury.hamon@hesge.ch)
+Pour en savoir plus sur ma pratique: [amauryhamon.com](https://amauryhamon.com)
 
-Vous pouvez également rechercher par tags ou dans la barre de recherche des pages spécifiques.
-
-Pour vous nourrir de références graphiques je vous conseille d'utiliser la plateforme [Are.na](https://www.are.na). Je met à jour régulièrement des références de site web sur mon [profil](https://www.are.na/amaury-hamon) parmi d'autres ressources.
-
-Pour toutes questions ou remarques, n'hésitez pas à [me contacter par email](mailto:amaury.hamon@eduvaud.ch)
+Me trouver: [Are.na](https://www.are.na/amaury-hamon) [Instagram](https://www.instagram.com/amauryhamon/)
 
 Quelques points de départ: 
 
-[[HTML Introduction]][[CSS Introduction]]
-[Débutant](/tags/débutant) [Essentiels](/tags/essentiels)
+[[HTML]] [[CSS]] [[JS]] [[Divers]]
