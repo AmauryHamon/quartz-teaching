@@ -50,7 +50,7 @@ La raison pour laquelle cet objet n'est pas un objet JSON est qu'il contient une
 
 On a fréquemment besoin de convertir une chaîne JSON en objet JSON (en JavaScript) et vice versa.
 
-Lorsque l'on communique avec une [[Ressources/3-JS/7-API|API]], vous ne pouvez pas envoyer d'objet. Vous devrez le convertir en une chaîne ([[Ressources/3-JS/1-introduction#03-strings|string]]). De même, l'API ne peut pas vous envoyer d'objet, elle vous enverra une chaîne. Mais cette chaîne n'est pas n'importe quelle chaîne. C'est une chaîne JSON. Cela signifie qu'elle peut être reconvertie en un objet JSON.
+Lorsque l'on communique avec une [[Ressources/3-JS/7-API|API]], vous ne pouvez pas envoyer d'objet. Vous devrez le convertir en une chaîne ([[Ressources/3-JS/1-data-types#03-strings|string]]). De même, l'API ne peut pas vous envoyer d'objet, elle vous enverra une chaîne. Mais cette chaîne n'est pas n'importe quelle chaîne. C'est une chaîne JSON. Cela signifie qu'elle peut être reconvertie en un objet JSON.
 
 ## Avantages du JSON
 
