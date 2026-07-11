@@ -9,7 +9,7 @@ tags:
 
 ## CSS: Cascading Style Sheets
 
-Le CSS fait parti des trois languages de programmation pour le web avec le [[HTML]] et le [[Javascript]].
+Le CSS fait parti des trois languages de programmation pour le web avec le [[Ressources/1-HTML|HTML]] et le [[Ressources/3-JS|JS]].
 
 Si l'on utilise la métaphore d'une maison, on peut imaginer les trois langages comme répondant aux affirmations suivantes:
 - HTML (Hypertext Markup Language): Quelle est la structure de la maison et ce qu'elle contient? Les portes, fenêtres, pièces…

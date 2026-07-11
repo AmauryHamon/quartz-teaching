@@ -9,7 +9,7 @@ tags:
 
 ## HTML: Hypertext Markup Language
 
-Le HTML, est l'élément de base pour la création d'un site web. Il fait parti des trois languages de programmation pour le web avec le [[CSS]] et le [[Javascript]].
+Le HTML, est l'élément de base pour la création d'un site web. Il fait parti des trois languages de programmation pour le web avec le [[Ressources/2-CSS|CSS]] et le [[Ressources/3-JS|JS]].
 
 Si l'on utilise la métaphore d'une maison, on peut imaginer les trois langages comme répondant aux affirmations suivantes:
 - HTML (Hypertext Markup Language): Quelle est la **structure** de la maison et ce qu'elle **contient**? Les portes, fenêtres, pièces…

@@ -8,8 +8,6 @@ tags:
 description: "@keyframes, duration, timing, delay, iteration, fill-mode, and play-state"
 ---
 
-import StoryEmbed from "../../../components/StoryEmbed.astro";
-
 ## 01. @keyframes
 
 Define the animation's steps with `@keyframes`. Use `from`/`to` for a simple A→B animation, or percentage stops for multi-step sequences.
