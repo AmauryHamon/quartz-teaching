@@ -1,0 +1,40 @@
+filters: 'file.inFolder("Ressources/Readings")'
+
+views:
+  
+  - type: board
+    name: board
+    boardProperty: category
+    order:
+      - title
+      - author
+      - url
+  
+  - type: cards
+    name: cards
+    boardProperty: category
+    order:
+      - title
+      - author
+      - url
+  
+  - type: list
+    name: liste
+    boardProperty: category
+    order:
+      - title
+      - author
+      - url
+
+  - type: table
+    name: tableau
+    order:
+      - title
+      - category
+      - author
+      - url
+    sort:
+      - property: category
+        direction: ASC
+      - property: title
+        direction: ASC
