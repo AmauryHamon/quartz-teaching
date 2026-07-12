@@ -245,7 +245,8 @@ function buildPreviewPanel(srcDoc) {
         properties: {
           className: ["interactive-embed-frame"],
           srcDoc,
-          sandbox: "allow-scripts allow-forms allow-modals allow-popups",
+          sandbox: "allow-scripts allow-forms allow-modals allow-popups allow-same-origin",
+          allow: "camera; microphone; clipboard-write",
           loading: "lazy",
         },
         children: [],
