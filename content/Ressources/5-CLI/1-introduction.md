@@ -18,6 +18,8 @@ Knowing bits of CLI can really help if you are interested in writing and running
 
 Here is a very clean and extensive [CLI guide](https://github.com/Idnan/bash-guide)
 
+Here is a [intro course](https://swcarpentry.github.io/shell-novice/) on Bash by Software Carpentry
+
 # Useful commands
 
 ## Navigating folders
