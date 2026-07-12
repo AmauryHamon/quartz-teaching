@@ -8,14 +8,22 @@ tags:
 description: Select, modify, create and remove elements with JavaScript
 ---
 
+# Select elements
+
 ## 01. querySelector
 
 Finds the **first** element matching a CSS selector. Call it on `document` to search the whole page, or on any element to scope the search.
 
 ```html:index.html
 <div class="qs-stage" id="qs-stage">
-  <p class="qs-para" id="qs-para">A paragraph inside the stage. It contains an <em class="qs-item">em element</em> inside.</p>
-  <div><span class="qs-chip">Chip A</span><span class="qs-chip">Chip B</span><span class="qs-chip">Chip C</span></div>
+  <p class="qs-para" id="qs-para">
+    A paragraph inside the stage. It contains an <em class="qs-item">em element</em> inside.
+  </p>
+  <div>
+    <span class="qs-chip">Chip A</span>
+    <span class="qs-chip">Chip B</span>
+    <span class="qs-chip">Chip C</span>
+  </div>
 </div>
 <div class="qs-btns">
   <button class="btn" data-sel="#qs-para">querySelector("#qs-para")</button>
@@ -25,43 +33,9 @@ Finds the **first** element matching a CSS selector. Call it on `document` to se
 <div class="qs-out" id="qs-out">Click a button to select</div>
 ```
 ```css:style.css
-<div class="rm-list" id="rm-list">
-  <div class="rm-item">Item A <button class="rm-btn">×</button></div>
-  <div class="rm-item">Item B <button class="rm-btn">×</button></div>
-  <div class="rm-item">Item C <button class="rm-btn">×</button></div>
-</div>
-<button class="btn" id="rm-restore">Restore items</button>
-<div class="out" id="rm-out">Click × to call el.remove()</div>
+
 .qs-para {
   font-size: .9rem;
-.rm-list {
-  display: flex;
-  flex-direction: column;
-  gap: .4rem;
-  margin-bottom: .75rem;
-}
-
-.rm-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f1f5f9;
-  padding: .5rem .75rem;
-  border-radius: 6px;
-  font-size: .875rem;
-}
-
-.rm-btn {
-  background: none;
-  border: none;
-  color: #ef4444;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0 .25rem;
-}
-
-.rm-btn:hover {
-  color: #b91c1c;
 }
 
 .btn {
@@ -74,51 +48,10 @@ Finds the **first** element matching a CSS selector. Call it on `document` to se
   font-size: .8rem;
 }
 
-.out {
-  font-family: monospace;
-  font-size: .75rem;
-  color: #94a3b8;
-  margin-top: .5rem;
-}
+.qs-chip{
   border-radius: 4px;
   font-size: .8rem;
   margin: .2rem;
-  const list = document.getElementById("rm-list");
-  const out = document.getElementById("rm-out");
-  const restoreBtn = document.getElementById("rm-restore");
-  if (!list || !out || !restoreBtn) return;
-
-  const createItem = (label) => {
-    const item = document.createElement("div");
-    item.className = "rm-item";
-    item.append(document.createTextNode(`${label} `));
-
-    const btn = document.createElement("button");
-    btn.className = "rm-btn";
-    btn.textContent = "×";
-    item.appendChild(btn);
-
-    return item;
-  };
-
-  list.addEventListener("click", (e) => {
-    if (e.target.classList.contains("rm-btn")) {
-      const item = e.target.closest(".rm-item");
-      const name = item.textContent.trim().slice(0, 6);
-      item.remove();
-      out.textContent = `"${name}".remove() - gone from DOM`;
-    }
-  });
-
-  restoreBtn.onclick = () => {
-    list.replaceChildren(
-      createItem("Item A"),
-      createItem("Item B"),
-      createItem("Item C")
-    );
-    out.textContent = "Restored";
-  };
-}, 0);
   background: white;
   color: #6366f1;
   border-radius: 6px;
@@ -272,6 +205,8 @@ items.forEach(item => {
 
 ---
 
+# Edit text elements
+
 ## 03. textContent vs innerHTML
 
 `textContent` treats everything as plain text. `innerHTML` parses HTML tags. Only use `innerHTML` with content you control — never with raw user input.
@@ -361,9 +296,13 @@ el.innerHTML = "Hello <b>world</b>"
 
 ---
 
+# Style elements
+
 ## 04. style
 
 Set any CSS property via `element.style`. Property names become camelCase: `font-size` → `fontSize`.
+
+Check this [list](https://www.w3schools.com/jsref/dom_obj_style.asp) for all style possibilities.
 
 ```html:index.html
 
@@ -642,6 +581,8 @@ const val = getComputedStyle(document.documentElement)
 
 ---
 
+# Add elements
+
 ## 07. createElement + append
 
 Build new elements in JS and insert them. `appendChild` adds at the end, `prepend` adds at the start.
@@ -752,6 +693,8 @@ container.prepend(tile)       // insert at the start
 
 ---
 
+# Remove elements
+
 ## 08. remove
 
 Remove any element from the DOM with `.remove()`. Works great inside a click handler.
@@ -860,6 +803,8 @@ el.addEventListener("click", () => el.remove())
 ```
 
 ---
+
+# Add data to elements
 
 ## 09. dataset
 
