@@ -2,8 +2,7 @@
 title: API, Async, await
 draft: false
 tags:
-  - débutant
-  - essentiels
+  - avancé
   - JS
 description: Asynchronous functions
 ---

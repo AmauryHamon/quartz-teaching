@@ -2,8 +2,7 @@
 title: Fetch Methods
 draft: false
 tags:
-  - débutant
-  - essentiels
+  - avancé
   - JS
 description: How to get, create, update or deleted data with fetch?
 ---

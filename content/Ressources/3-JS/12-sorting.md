@@ -2,8 +2,7 @@
 title: Sorting
 draft: false
 tags:
-  - débutant
-  - essentiels
+  - avancé
   - JS
 description: Sorting data in JavaScript
 ---

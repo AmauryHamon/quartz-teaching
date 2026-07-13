@@ -2,8 +2,7 @@
 title: Fetch Intro
 draft: false
 tags:
-  - débutant
-  - essentiels
+  - avancé
   - JS
 description: Fetching data from an API – the basics.
 ---
@@ -34,7 +33,7 @@ This response is a ==promise==.
 
 API URLs are generally composed two parts: a base URL, and endpoints to different types of data.
 
-Example fo a service API with different endpoints:
+Example for a service API with different endpoints:
 - https://service.com/api/v1/users.json
 - https://service.com/api/v1/notifications.json
 - https://service.com/api/v1/messages.json
