@@ -11,6 +11,8 @@ tags:
 
 A trail of links showing where the current page sits in a hierarchy. Pure HTML and CSS — no JS at all, even for the responsive version.
 
+[MDN: Breadcrumbs](https://developer.mozilla.org/fr/docs/Web/CSS/Layout_cookbook/Breadcrumb_Navigation)
+
 # Pseudocode
 
 ## Structure
