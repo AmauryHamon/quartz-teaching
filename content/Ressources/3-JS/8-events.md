@@ -888,3 +888,44 @@ document.addEventListener("paste", (e) => {
     console.log(text)
 })
 ```
+
+## Cleaning up your events
+
+It is often neglected to check whether events you setup are correctly cleaned up. By this, it means they are properly destroyed once not used anymore. When switching page, if you check your browser dev tools memory tab, you can see listeners climbing up as "detached". This leaks memory.
+
+Above we saw how to fire event listeners, let's see how to clean them up, multiple ways:
+
+### Manually one by one:
+
+When removing manually a single event listener, both the event and passed function need to be identical for this to work.
+
+This approach is good when having very little amount of event listeners, but not good when having dozens.
+
+
+```js:script.js
+el.addEventListener('click', onClick);
+//later, to remove it:
+
+el.removeEventListener('click', onClick);
+
+```
+
+### Batch – with AbortController
+
+The AbortController helps cleanup all events at once. 
+AbortController gives access to a `signal` acting as a one-off switch. 
+We can then pass this `signal` as third parameter (the options) of our event listeners:
+
+```js:script.js
+const controller = new AbortController();
+
+const { signal } = controller // one off switch
+
+el.addEventListener('click', onClick, { signal })
+el.addEventListener('scroll', onClick, { signal })
+
+controller.abort();
+
+```
+
+[MDN: AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
