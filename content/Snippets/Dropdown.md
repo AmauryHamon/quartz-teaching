@@ -27,7 +27,7 @@ A button that reveals a menu of options. Based on [daisyUI's dropdown](https://d
 ## Features
 
 - Opening/closing can be entirely native: `<details>`/`<summary>` needs nothing else, exactly like the accordion note.
-- A more common real-world need — closing when the visitor clicks outside, or presses Escape — needs JS, since neither `<details>` nor CSS `:focus-within` do that on their own.
+- A more common real-world need — closing when the visitor clicks outside, or presses Escape — needs JS with the two techniques above, since neither `<details>` nor CSS `:focus-within` do that on their own. The [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) does both natively too (third variant below) — once dismissal is free, positioning relative to the trigger is the only thing left to solve, which is where [anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using) comes in.
 
 # Basic dropdown (`<details>`, no JS)
 
@@ -184,5 +184,77 @@ if (root && trigger && menu) {
             trigger.focus();
         }
     });
+}
+```
+
+# Dropdown with Popover API + anchor positioning (no JS)
+
+`popovertarget` on the button wires up open/close/outside-click/Escape entirely natively — no `document` listeners needed, and no `.dropdown { position: relative }` wrapper either. The one thing the Popover API doesn't do on its own is position the menu next to its trigger: opening a popover promotes it to the *top layer*, so it renders outside normal document flow, and a relatively-positioned ancestor no longer has any effect on it. That's exactly the gap [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using) fills — `anchor-name` on the trigger, `position-anchor` on the popover, then `top`/`left: anchor(...)` place it relative to the button as if it had never left the flow.
+
+> [!warning] Support caveat (Progressive enhancement)
+> As of summer 2026, the Popover API alone is broadly supported, but this combination also needs anchor positioning, which is newer. Without it, the menu still opens and closes correctly — it just won't be positioned next to the button, falling back to the browser's default (roughly centered) popover placement.
+> [Can I Use: anchor positionning](https://caniuse.com/css-anchor-positioning)
+> [MDN: position-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position-anchor)
+
+```html:index.html
+<button id="dd-trigger" class="dropdown-trigger" popovertarget="dd-menu">Options ▾</button>
+<ul id="dd-menu" class="dropdown-content" popover>
+    <li><a href="#">Edit</a></li>
+    <li><a href="#">Duplicate</a></li>
+    <li><a href="#">Delete</a></li>
+</ul>
+```
+
+```css:style.css
+#dd-trigger {
+    anchor-name: --dd-trigger;
+}
+#dd-menu {
+    position-anchor: --dd-trigger;
+}
+
+.dropdown-trigger {
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #1e293b;
+}
+
+.dropdown-content {
+    /* Popovers render in the top layer, outside normal document flow —
+       a relatively-positioned wrapper no longer helps position them,
+       so `position: fixed` + anchor() replaces that entirely. */
+    position: fixed;
+    margin: 0;
+    min-width: 10rem;
+    padding: 0.4rem;
+    list-style: none;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+@supports (anchor-name: --dd-trigger) {
+    .dropdown-content {
+        top: calc(anchor(bottom) + 0.4rem);
+        left: anchor(left);
+    }
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #334155;
+    text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+    background: #f1f5f9;
 }
 ```
