@@ -93,6 +93,10 @@
                 }
             }
         }
+        & h1 {
+            
+            font-size: clamp(2rem, 3vw, 2.5rem);
+        }
         & h2 {
             margin: 3.5rem 0 2.5rem;
             font-size: clamp(1.5rem, 3vw, 2rem);
