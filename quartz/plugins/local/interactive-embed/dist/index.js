@@ -213,12 +213,52 @@ function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
 
+// The iframe's srcdoc is its own document, so it doesn't inherit the host
+// page's theme custom properties. Since the sandbox grants allow-same-origin,
+// we read the host's resolved colors (the same set quartz.config.ts's
+// colors.lightMode/darkMode define) and mirror them here — re-synced on the
+// "themechange" event the darkmode plugin fires — so the preview follows the
+// site's light/dark mode instead of defaulting to the browser's white canvas.
+const THEME_COLOR_VARS = [
+  "--light",
+  "--lightgray",
+  "--gray",
+  "--darkgray",
+  "--dark",
+  "--secondary",
+  "--tertiary",
+  "--highlight",
+  "--textHighlight",
+]
+
+const themeSyncScript = `
+const THEME_COLOR_VARS = ${JSON.stringify(THEME_COLOR_VARS)}
+function applyParentTheme() {
+  try {
+    const style = getComputedStyle(window.parent.document.documentElement)
+    const root = document.documentElement
+    for (const name of THEME_COLOR_VARS) {
+      const value = style.getPropertyValue(name).trim()
+      if (value) root.style.setProperty(name, value)
+    }
+  } catch (e) {}
+}
+applyParentTheme()
+try {
+  window.parent.document.addEventListener("themechange", applyParentTheme)
+  window.addEventListener("unload", function () {
+    window.parent.document.removeEventListener("themechange", applyParentTheme)
+  })
+} catch (e) {}
+`
+
 function buildSrcDoc({ body, headExtra = "", bodyAppend = "" }) {
   return `<!doctype html>
 <html>
 <head>
 <meta charset="utf-8" />
-<style>html,body{margin:0;padding:0.75rem;font-family:system-ui,sans-serif;}</style>
+<style>html,body{margin:0;padding:0.75rem;font-family:system-ui,sans-serif;background:var(--light,#fff);color:var(--dark,inherit);}</style>
+<script>${themeSyncScript}<\/script>
 ${headExtra}
 </head>
 <body>
