@@ -60,26 +60,28 @@ The `<details>`/`<summary>` pair is a native, built-in accordion item — click 
 }
 
 details {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: border-color 300ms ease;
+    &:hover {
+        border-color: var(--dark);
+    }
 }
 
 summary {
     cursor: pointer;
-    font-size: 0.9rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--darkgray);
 }
 
 summary::marker {
-    color: #6366f1;
+    color: var(--highlight);
 }
 
 details p {
-    margin: 0.6rem 0 0;
-    font-size: 0.85rem;
-    color: #64748b;
+    margin: 1rem 0 0;
+    color: var(--darkgray);
 }
 ```
 
@@ -112,32 +114,108 @@ Give every `<details>` the same `name` attribute and the browser makes them mutu
 }
 
 details {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: border-color 300ms ease;
+    &:hover {
+        border-color: var(--dark);
+    }
 }
 
 summary {
     cursor: pointer;
-    font-size: 0.9rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--darkgray);
 }
 
 summary::marker {
-    color: #6366f1;
+    color: var(--highlight);
 }
 
 details p {
-    margin: 0.6rem 0 0;
-    font-size: 0.85rem;
-    color: #64748b;
+    margin: 1rem 0 0;
+    color: var(--darkgray);
 }
 ```
 
-# Basic static accordions with a height transition
+# Basic static accordions with a height transition (Progressive Enhancement, no JS)
 
-`<details>` can't be reliably height-animated yet, so this version swaps it for a plain `<button>` + `<div class="accordion-panel">` pair, with JS doing what the browser did for free above: tracking open/closed state (via `aria-expanded`, which does double duty for accessibility) and closing every other item when one opens.
+> [!warning] Progressive Enhancement
+> As of summer 2026, `interpolate-size` is not yet implemented in Firefox and Safari. 
+See [compatibility](https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/interpolate-size#compatibilit%C3%A9_des_navigateurs)
+
+By using exactly the same previous structure, we can animate transition on auto by using a few specific properties:
+
+- `interpolate-size: allow-keywords`: allow transition between numeric values and intrisinc values (auto, min-content, max-content) [MDN: interpolate-size](https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/interpolate-size)
+- `::details-content` and [open]::details-content pseudo-selectors [MDN: ::details-content](https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Selectors/::details-content)
+- `block-size`: refers to the size of an element's block along the block axis, i.e with horizontal text, it sets the height [MDN: block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/block-size)
+
+```html:index.html
+<div class="accordion">
+    <details name="faq">
+        <summary>What's your return policy?</summary>
+        <p>Unworn items can be returned within 30 days for a full refund.</p>
+    </details>
+    <details name="faq">
+        <summary>Do you ship internationally?</summary>
+        <p>Yes — shipping costs are calculated at checkout based on destination.</p>
+    </details>
+    <details name="faq">
+        <summary>How do I track my order?</summary>
+        <p>You'll get a tracking link by email as soon as your order ships.</p>
+    </details>
+</div>
+```
+
+```css:style.css
+/* Same styling as before */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+details {
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow: hidden;
+    
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--darkgray);
+}
+summary::marker {
+    color: var(--highlight);
+}
+details p {
+    margin: 1rem 0 0;
+    color: var(--darkgray);
+}
+
+/* In order to transition to "height: auto;" */
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details::details-content {
+    /* hide content when closed */
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 300ms ease, content-visibility 300ms ease allow-discrete;
+}
+details[open]::details-content {
+    /* show content with height auto */
+    block-size: auto;
+}
+
+```
+
+# JS accordions with height transition (scrollHeight)
+
+As `<details>` can't be fully and reliably be height-animated yet, so this version swaps it for a plain `<button>` + `<div class="accordion-panel">` pair, with JS doing what the browser did for free above: tracking open/closed state (via `aria-expanded`, which does double duty for accessibility) and closing every other item when one opens.
 
 The animation is the same trick as the tabs note: `height: 0` by default, and opening sets `height` to the panel's measured `scrollHeight` in pixels. `scrollHeight` reports the full content height even while the panel is visually collapsed and clipped by `overflow: hidden`, so there's no flash of the wrong size — closing just sets it back to `0px`.
 
@@ -174,28 +252,27 @@ Same caveat as before: the pinned height doesn't know about content that reflows
 }
 
 .accordion-item {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
     overflow: hidden;
 }
 
 .accordion-trigger {
     display: block;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 1rem;
     border: none;
     background: none;
     text-align: left;
-    font-size: 0.9rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--darkgray);
     cursor: pointer;
 }
 
 .accordion-trigger::after {
     content: "+";
     float: right;
-    color: #6366f1;
+    color: var(--highlight);
 }
 
 .accordion-trigger[aria-expanded="true"]::after {
@@ -210,9 +287,8 @@ Same caveat as before: the pinned height doesn't know about content that reflows
 
 .accordion-panel p {
     margin: 0;
-    padding: 0 1rem 0.75rem;
-    font-size: 0.85rem;
-    color: #64748b;
+    padding: 0 1rem 1rem;
+    color: var(--gray);
 }
 ```
 
