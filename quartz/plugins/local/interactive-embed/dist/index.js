@@ -24,9 +24,9 @@ const defaultOptions = {
 const resizeScript = `
 window.addEventListener("message", function (event) {
   if (!event.data || event.data.type !== ${JSON.stringify(MESSAGE_TYPE)}) return
-  var frames = document.getElementsByClassName("interactive-embed-frame")
-  for (var i = 0; i < frames.length; i++) {
-    var frame = frames[i]
+  const frames = document.getElementsByClassName("interactive-embed-frame")
+  for (let i = 0; i < frames.length; i++) {
+    const frame = frames[i]
     if (frame instanceof HTMLIFrameElement && frame.contentWindow === event.source) {
       frame.style.height = event.data.height + "px"
     }
@@ -36,19 +36,19 @@ window.addEventListener("message", function (event) {
 
 const tabsScript = `
 function setupInteractiveEmbedTabs() {
-  var containers = document.getElementsByClassName("interactive-embed")
-  for (var i = 0; i < containers.length; i++) {
+  const containers = document.getElementsByClassName("interactive-embed")
+  for (let i = 0; i < containers.length; i++) {
     ;(function (container) {
-      var buttons = container.querySelectorAll(".interactive-embed-tab")
-      for (var j = 0; j < buttons.length; j++) {
+      const buttons = container.querySelectorAll(".interactive-embed-tab")
+      for (let j = 0; j < buttons.length; j++) {
         ;(function (button) {
-          var onClick = function () {
-            var tab = button.getAttribute("data-tab")
-            var allButtons = container.querySelectorAll(".interactive-embed-tab")
-            for (var k = 0; k < allButtons.length; k++) allButtons[k].classList.remove("is-active")
+          const onClick = function () {
+            const tab = button.getAttribute("data-tab")
+            const allButtons = container.querySelectorAll(".interactive-embed-tab")
+            for (let k = 0; k < allButtons.length; k++) allButtons[k].classList.remove("is-active")
             button.classList.add("is-active")
-            var allPanels = container.querySelectorAll(".interactive-embed-panel")
-            for (var k = 0; k < allPanels.length; k++) {
+            const allPanels = container.querySelectorAll(".interactive-embed-panel")
+            for (let k = 0; k < allPanels.length; k++) {
               allPanels[k].classList.toggle("is-active", allPanels[k].getAttribute("data-panel") === tab)
             }
           }
@@ -67,24 +67,24 @@ document.addEventListener("render", setupInteractiveEmbedTabs)
 
 const fullscreenScript = `
 function setupInteractiveEmbedFullscreen() {
-  var containers = document.getElementsByClassName("interactive-embed")
-  for (var i = 0; i < containers.length; i++) {
+  const containers = document.getElementsByClassName("interactive-embed")
+  for (let i = 0; i < containers.length; i++) {
     ;(function (container) {
-      var button = container.querySelector(".interactive-embed-fullscreen-toggle")
+      const button = container.querySelector(".interactive-embed-fullscreen-toggle")
       if (!button) return
 
-      var isFullscreen = function () {
-        var current =
+      const isFullscreen = function () {
+        const current =
           document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement
         return current === container
       }
 
-      var onClick = function () {
+      const onClick = function () {
         if (isFullscreen()) {
-          var exitFs = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen
+          const exitFs = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen
           if (exitFs) exitFs.call(document)
         } else {
-          var requestFs =
+          const requestFs =
             container.requestFullscreen || container.webkitRequestFullscreen || container.msRequestFullscreen
           if (requestFs) requestFs.call(container)
         }
@@ -94,8 +94,8 @@ function setupInteractiveEmbedFullscreen() {
         button.removeEventListener("click", onClick)
       })
 
-      var onFullscreenChange = function () {
-        var active = isFullscreen()
+      const onFullscreenChange = function () {
+        const active = isFullscreen()
         button.setAttribute("aria-pressed", String(active))
         button.textContent = active ? "✕" : "⛶"
         button.title = active ? "Exit fullscreen" : "Fullscreen"
@@ -174,7 +174,7 @@ function embedStyle(defaultHeight) {
   width: 100%;
   height: ${defaultHeight}px;
   border: none;
-  background: white;
+  background: var(--light);
 }
 .interactive-embed:fullscreen,
 .interactive-embed:-webkit-full-screen {
