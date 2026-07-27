@@ -85,7 +85,7 @@ details p {
 }
 ```
 
-# Basic static accordions (one at a time)
+# Accordions open one at a time
 
 Give every `<details>` the same `name` attribute and the browser makes them mutually exclusive — opening one closes the others, still with zero JS. (Supported in current Chrome, Edge, Firefox and Safari; older browsers just fall back to every item being independent, like the section above.)
 
@@ -139,7 +139,9 @@ details p {
 }
 ```
 
-# Basic static accordions with a height transition (Progressive Enhancement, no JS)
+# Transitioning the height 
+
+## 1. Progressive Enhancement, no JS
 
 > [!warning] Progressive Enhancement
 > As of summer 2026, `interpolate-size` is not yet implemented in Firefox and Safari. 
@@ -213,7 +215,7 @@ details[open]::details-content {
 
 ```
 
-# JS accordions with height transition (scrollHeight)
+## 2. JS accordions
 
 As `<details>` can't be fully and reliably be height-animated yet, so this version swaps it for a plain `<button>` + `<div class="accordion-panel">` pair, with JS doing what the browser did for free above: tracking open/closed state (via `aria-expanded`, which does double duty for accessibility) and closing every other item when one opens.
 
