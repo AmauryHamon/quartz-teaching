@@ -1,6 +1,6 @@
 ---
 title: Variable Fonts Web
-draft: false
+draft: true
 tags:
   - initié
   - essentiels

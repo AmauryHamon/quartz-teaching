@@ -1,6 +1,6 @@
 ---
 title: Menu latéral (Side Menu)
-draft: false
+draft: true
 tags:
   - initié
   - CSS

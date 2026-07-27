@@ -1,6 +1,6 @@
 ---
 title: Tabs
-draft: false
+draft: true
 tags:
   - avancé
   - CSS

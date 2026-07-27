@@ -1,6 +1,6 @@
 ---
 title: Navigation horizontale sticky
-draft: false
+draft: true
 tags:
   - initié
   - CSS

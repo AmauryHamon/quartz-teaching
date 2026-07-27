@@ -1,6 +1,6 @@
 ---
 title: Centrer en CSS
-draft: false
+draft: true
 tags:
   - initié
   - CSS

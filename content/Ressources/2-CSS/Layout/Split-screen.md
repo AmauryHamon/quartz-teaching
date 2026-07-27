@@ -1,6 +1,6 @@
 ---
 title: Ecran divisé en deux fixe/scrollable
-draft: false
+draft: true
 tags:
   - initié
   - CSS
