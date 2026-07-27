@@ -7,8 +7,14 @@
 // rehype-pretty-code ever sees the node, but the injected code panels are
 // normal `pre>code` blocks, so rehype-pretty-code still highlights them (and
 // the clipboard-copy button still attaches to them).
+//
+// Per-embed options: append `:option` to the fence's language token (the
+// same colon-separated slot used for filenames), e.g. ```interactive:fullscreen
+// or ```html:index.html:fullscreen. This is off by default; write it only on
+// the blocks that need it. For a file group, setting it on any one file's
+// fence enables it for the whole embed. Multiple options can be comma
+// separated: ```interactive:fullscreen,foo=bar.
 
-const LANGUAGE_CLASS = "language-interactive"
 const MESSAGE_TYPE = "quartz-interactive-resize"
 
 const defaultOptions = {
@@ -59,6 +65,54 @@ document.addEventListener("nav", setupInteractiveEmbedTabs)
 document.addEventListener("render", setupInteractiveEmbedTabs)
 `
 
+const fullscreenScript = `
+function setupInteractiveEmbedFullscreen() {
+  var containers = document.getElementsByClassName("interactive-embed")
+  for (var i = 0; i < containers.length; i++) {
+    ;(function (container) {
+      var button = container.querySelector(".interactive-embed-fullscreen-toggle")
+      if (!button) return
+
+      var isFullscreen = function () {
+        var current =
+          document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement
+        return current === container
+      }
+
+      var onClick = function () {
+        if (isFullscreen()) {
+          var exitFs = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen
+          if (exitFs) exitFs.call(document)
+        } else {
+          var requestFs =
+            container.requestFullscreen || container.webkitRequestFullscreen || container.msRequestFullscreen
+          if (requestFs) requestFs.call(container)
+        }
+      }
+      button.addEventListener("click", onClick)
+      window.addCleanup(function () {
+        button.removeEventListener("click", onClick)
+      })
+
+      var onFullscreenChange = function () {
+        var active = isFullscreen()
+        button.setAttribute("aria-pressed", String(active))
+        button.textContent = active ? "✕" : "⛶"
+        button.title = active ? "Exit fullscreen" : "Fullscreen"
+      }
+      document.addEventListener("fullscreenchange", onFullscreenChange)
+      document.addEventListener("webkitfullscreenchange", onFullscreenChange)
+      window.addCleanup(function () {
+        document.removeEventListener("fullscreenchange", onFullscreenChange)
+        document.removeEventListener("webkitfullscreenchange", onFullscreenChange)
+      })
+    })(containers[i])
+  }
+}
+document.addEventListener("nav", setupInteractiveEmbedFullscreen)
+document.addEventListener("render", setupInteractiveEmbedFullscreen)
+`
+
 function embedStyle(defaultHeight) {
   return `
 .interactive-embed {
@@ -89,6 +143,22 @@ function embedStyle(defaultHeight) {
   background: var(--lightgray);
   color: var(--dark);
 }
+.interactive-embed .interactive-embed-fullscreen-toggle {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gray);
+  cursor: pointer;
+}
+.interactive-embed .interactive-embed-fullscreen-toggle:hover {
+  background: var(--lightgray);
+  color: var(--dark);
+}
 .interactive-embed .interactive-embed-panel {
   display: none;
 }
@@ -105,6 +175,28 @@ function embedStyle(defaultHeight) {
   height: ${defaultHeight}px;
   border: none;
   background: white;
+}
+.interactive-embed:fullscreen,
+.interactive-embed:-webkit-full-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border-radius: 0;
+  background: var(--light);
+}
+.interactive-embed:fullscreen .interactive-embed-panel.is-active,
+.interactive-embed:-webkit-full-screen .interactive-embed-panel.is-active {
+  flex: 1;
+  min-height: 0;
+}
+.interactive-embed:fullscreen .interactive-embed-panel.is-active pre,
+.interactive-embed:-webkit-full-screen .interactive-embed-panel.is-active pre {
+  height: 100%;
+  overflow: auto;
+}
+.interactive-embed:fullscreen .interactive-embed-frame,
+.interactive-embed:-webkit-full-screen .interactive-embed-frame {
+  height: 100% !important;
 }
 `
 }
@@ -143,16 +235,46 @@ window.addEventListener("load", reportHeight)
 </html>`
 }
 
-function isInteractiveCodeBlock(node) {
-  if (!node || node.type !== "element" || node.tagName !== "pre") return false
-  const code = node.children[0]
-  if (!code || code.type !== "element" || code.tagName !== "code") return false
-  const classNames = code.properties?.className ?? []
-  return Array.isArray(classNames) && classNames.includes(LANGUAGE_CLASS)
+// Parses the trailing `:option,key=value` slot shared by the ```interactive
+// and ```lang:filename fence syntaxes into an options object, e.g.
+// "fullscreen" -> { fullscreen: true }, "fullscreen,foo=bar" -> { fullscreen: true, foo: "bar" }.
+function parseOptions(str) {
+  const options = {}
+  if (!str) return options
+  for (const part of str.split(",")) {
+    const trimmed = part.trim()
+    if (!trimmed) continue
+    const [key, value] = trimmed.split("=")
+    options[key.trim().toLowerCase()] = value === undefined ? true : value.trim()
+  }
+  return options
 }
 
-// Matches fenced blocks written as ```html:index.html, ```css:style.css, ```js:script.js
-const FILE_BLOCK_PATTERN = /^language-([a-z0-9]+):(.+)$/i
+function isFullscreenEnabled(options) {
+  return options?.fullscreen === true || options?.fullscreen === "true"
+}
+
+// Matches ```interactive or ```interactive:fullscreen
+const INTERACTIVE_BLOCK_PATTERN = /^language-interactive(?::(.+))?$/i
+
+function parseInteractiveBlock(node) {
+  if (!node || node.type !== "element" || node.tagName !== "pre") return null
+  const code = node.children[0]
+  if (!code || code.type !== "element" || code.tagName !== "code") return null
+  const classNames = code.properties?.className ?? []
+  if (!Array.isArray(classNames)) return null
+  for (const className of classNames) {
+    const match = INTERACTIVE_BLOCK_PATTERN.exec(className)
+    if (match) {
+      return { source: getCodeText(code), options: parseOptions(match[1]) }
+    }
+  }
+  return null
+}
+
+// Matches fenced blocks written as ```html:index.html, ```css:style.css, ```js:script.js,
+// optionally followed by ```html:index.html:fullscreen
+const FILE_BLOCK_PATTERN = /^language-([a-z0-9]+):([^:]+)(?::(.+))?$/i
 
 function parseFileBlock(node) {
   if (!node || node.type !== "element" || node.tagName !== "pre") return null
@@ -163,7 +285,12 @@ function parseFileBlock(node) {
   for (const className of classNames) {
     const match = FILE_BLOCK_PATTERN.exec(className)
     if (match) {
-      return { lang: match[1].toLowerCase(), filename: match[2], source: getCodeText(code) }
+      return {
+        lang: match[1].toLowerCase(),
+        filename: match[2],
+        options: parseOptions(match[3]),
+        source: getCodeText(code),
+      }
     }
   }
   return null
@@ -255,7 +382,25 @@ function buildPreviewPanel(srcDoc) {
   }
 }
 
-function buildEmbedContainer(fileTabs, panels) {
+function buildFullscreenButton() {
+  return {
+    type: "element",
+    tagName: "button",
+    properties: {
+      type: "button",
+      className: ["interactive-embed-fullscreen-toggle"],
+      title: "Fullscreen",
+      
+      ariaLabel: "Toggle fullscreen",
+      ariaPressed: "false",
+    },
+    children: [{ type: "text", value: "⛶" }],
+  }
+}
+
+function buildEmbedContainer(fileTabs, panels, enableFullscreen) {
+  const tabButtons = [buildTabButton("preview", "Preview", true), ...fileTabs]
+  if (enableFullscreen) tabButtons.push(buildFullscreenButton())
   return {
     type: "element",
     tagName: "div",
@@ -265,24 +410,25 @@ function buildEmbedContainer(fileTabs, panels) {
         type: "element",
         tagName: "div",
         properties: { className: ["interactive-embed-tabs"] },
-        children: [buildTabButton("preview", "Preview", true), ...fileTabs],
+        children: tabButtons,
       },
       ...panels,
     ],
   }
 }
 
-function buildLegacyEmbed(source) {
+function buildLegacyEmbed(source, enableFullscreen) {
   return buildEmbedContainer(
     [buildTabButton("code", "Code", false)],
     [buildPreviewPanel(buildSrcDoc({ body: source })), buildCodePanel("code", "html", source)],
+    enableFullscreen,
   )
 }
 
 // html files become the iframe body; css/js files are inlined into <style>/<script> so the
 // preview works without real network requests, replacing any matching <link>/<script src> tags
 // so notes can still reference "style.css" / "script.js" the way a real project would.
-function buildFileGroupEmbed(files) {
+function buildFileGroupEmbed(files, enableFullscreen) {
   const htmlFiles = files.filter((f) => f.lang === "html")
   const cssFiles = files.filter((f) => f.lang === "css")
   const jsFiles = files.filter((f) => f.lang === "js")
@@ -309,6 +455,7 @@ function buildFileGroupEmbed(files) {
       buildPreviewPanel(buildSrcDoc({ body, headExtra, bodyAppend })),
       ...files.map((f) => buildCodePanel(f.filename, f.lang, f.source)),
     ],
+    enableFullscreen,
   )
 }
 
@@ -319,14 +466,15 @@ function replaceInteractiveBlocks(tree) {
     const newChildren = []
     for (let i = 0; i < children.length; i++) {
       const child = children[i]
-      if (isInteractiveCodeBlock(child)) {
-        const source = getCodeText(child.children[0])
-        newChildren.push(buildLegacyEmbed(source))
+      const legacy = parseInteractiveBlock(child)
+      if (legacy) {
+        newChildren.push(buildLegacyEmbed(legacy.source, isFullscreenEnabled(legacy.options)))
         continue
       }
       const group = collectFileGroup(children, i)
       if (group) {
-        newChildren.push(buildFileGroupEmbed(group.files))
+        const enableFullscreen = group.files.some((f) => isFullscreenEnabled(f.options))
+        newChildren.push(buildFileGroupEmbed(group.files, enableFullscreen))
         i = group.endIndex
         continue
       }
@@ -356,6 +504,11 @@ export const InteractiveEmbed = (userOpts) => {
           },
           {
             script: tabsScript,
+            loadTime: "afterDOMReady",
+            contentType: "inline",
+          },
+          {
+            script: fullscreenScript,
             loadTime: "afterDOMReady",
             contentType: "inline",
           },
