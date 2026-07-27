@@ -8,7 +8,9 @@ tags:
 description: "@keyframes, duration, timing, delay, iteration, fill-mode, and play-state"
 ---
 
-## 01. @keyframes
+Animations with CSS gives simple ways of bringing your interface to life and feel less static. Whenever possible, use CSS animations instead of javascript. The logic behind works similarly to setting a timeline and keyframes in motion design softwares.
+
+# @keyframes
 
 Define the animation's steps with `@keyframes`. Use `from`/`to` for a simple Aâ†’B animation, or percentage stops for multi-step sequences.
 
@@ -56,7 +58,7 @@ Define the animation's steps with `@keyframes`. Use `from`/`to` for a simple Aâ†
 
 ---
 
-## 02. Duration & Timing Function
+# Duration & Timing Function
 
 The same keyframes with different durations and timing functions produce very different feelings.
 
@@ -150,7 +152,7 @@ animation-timing-function: steps(8, end);  /* choppy/sprite */
 
 ---
 
-## 03. Delay & Iteration
+# Delay & Iteration
 
 Use `animation-delay` to stagger animations. `animation-iteration-count: infinite` loops forever.
 

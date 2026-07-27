@@ -8,7 +8,9 @@ tags:
 description: block, inline, flex, grid — how elements take up space and arrange themselves
 ---
 
-## 01. Block, Inline, Inline-block
+Display is one of the most fundamental property in order to show, hide, and layout content is specific ways, by changing their natural arrangement on the page. By default, HTML elements generally stack either vertically taking full width of their container, or they flow inline, horizontally while ignoring width and height. We can do more than that by using specific display values such as grid and flex.
+
+# Block, Inline, Inline-block
 
 `block` fills the full width and stacks vertically. `inline` flows with text, ignores width/height. `inline-block` flows with text but respects width and height settings.
 

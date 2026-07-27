@@ -8,9 +8,48 @@ tags:
 description: font-family, size, weight, spacing, text utilities, and responsive type
 ---
 
-## 01. font-family & Stacks
+# Importing and using fonts
 
-Always provide a **font stack** — a comma-separated fallback list. End with a generic family (`serif`, `sans-serif`, `monospace`) as the final fallback.
+## Import fonts with @font-face
+
+Use any imported fonts by declaring `@font-face` at-rule at the top of your CSS stylesheet:
+- `font-family`: give your imported font a name to reuse where you will apply it within your styles.
+- `src` will like to your font file path, and define its font file format (woff2, opentype, etc.)
+
+Additional options when importing fonts can be set:
+- `font-style`: if you import an italic for example
+- `font-weight`:  if you import a bold/light cut for example
+- `font-feature-settings`: if you wish to activate specific opentype features
+
+```css
+@font-face {
+    /* the two most important declarations */
+    font-family: "YourFontName";
+    src: url("your-font-file-name.otf") format("opentype");
+    /* any additional options below */
+}
+```
+
+[MDN: @font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face)
+
+## Using fonts and set fallbacks
+
+Apply imported fonts in your CSS styles with `font-family`. Always provide a **font stack** — a comma-separated fallback list in case your imported fonts doesn't load. End with a generic family (`serif`, `sans-serif`, `monospace`) as the final fallback.
+
+```css
+/* system font stack — uses the OS's native UI font */
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+/* classic serif */
+font-family: Georgia, "Times New Roman", Times, serif;
+
+/* monospace */
+font-family: "SF Mono", "Fira Code", Consolas, monospace;
+
+/* Google Fonts — load in <head> first */
+font-family: "Inter", system-ui, sans-serif;
+
+```
 
 ```html:index.html
 <div class="ff-rows">
@@ -66,31 +105,15 @@ Always provide a **font stack** — a comma-separated fallback list. End with a 
 }
 ```
 
-```css
-/* system font stack — uses the OS's native UI font */
-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-/* classic serif */
-font-family: Georgia, "Times New Roman", Times, serif;
-
-/* monospace */
-font-family: "SF Mono", "Fira Code", Consolas, monospace;
-
-/* Google Fonts — load in <head> first */
-font-family: "Inter", system-ui, sans-serif;
-
-@font-face {
-    font-family: "MyFont";
-    src: url("./fonts/myfont.woff2") format("woff2");
-    font-display: swap;
-}
-```
 
 ---
 
-## 02. font-size & Units
+# Units & font-size
 
-Use `rem` so sizes scale with user browser settings. Use `clamp()` for fluid type that stays within a readable range.
+Instead of pixels, use `rem` (root element font-size, defaults to 16px) relative unit so sizes scale with user browser settings. 
+
+Use `clamp()` for fluid type that stays within a readable range.
 
 ```html:index.html
 <div class="scale">
@@ -175,8 +198,9 @@ font-size: clamp(1rem, 2.5vw, 2rem);
 
 ---
 
-## 03. font-weight & font-style
+## font-weight & font-style
 
+As seen above within `@font-face`, `font-style` and `font-weight` helps setting up your typographic styles.
 Weight ranges from 100 (thin) to 900 (black). For variable fonts, any integer weight is valid.
 
 ```html:index.html
@@ -242,7 +266,7 @@ font-weight: 350;
 
 ---
 
-## 04. Spacing — line-height & letter-spacing
+## Spacing — line-height & letter-spacing
 
 `line-height` controls vertical rhythm — set it as a unitless number so it scales with font size. Drag the sliders in the demo.
 
@@ -311,7 +335,7 @@ word-spacing: 0.1em;
 
 ---
 
-## 05. Text Utilities
+## Text Utilities
 
 One-liner properties that handle alignment, transformation, and decoration.
 

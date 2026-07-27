@@ -8,9 +8,9 @@ tags:
 description: static, relative, absolute, fixed, sticky — and z-index
 ---
 
-import StoryEmbed from "../../../components/StoryEmbed.astro";
+Position is one of the fundamental property allowing to layout content. By default, HTML elements position and order follow the flow of how they are written in the document. However, CSS position allow to override this, move elements based on their original position, and even to move out of the flow elements, fix them in a specific position.
 
-## 01. Static & Relative
+# Static & Relative
 
 `static` is the default — `top/right/bottom/left` do nothing. `relative` offsets an element from its natural position while keeping the original space reserved.
 
@@ -103,7 +103,7 @@ import StoryEmbed from "../../../components/StoryEmbed.astro";
 
 ---
 
-## 02. Absolute
+# Absolute
 
 Removed from normal flow, placed relative to its nearest non-static ancestor. If no such ancestor exists, it positions relative to the viewport.
 
@@ -169,7 +169,7 @@ Removed from normal flow, placed relative to its nearest non-static ancestor. If
 
 ---
 
-## 03. Fixed
+# Fixed
 
 Positioned relative to the **viewport**. Stays in place as you scroll — ideal for navbars, overlays, and floating buttons.
 
@@ -259,7 +259,7 @@ Positioned relative to the **viewport**. Stays in place as you scroll — ideal 
 
 ---
 
-## 04. Sticky
+# Sticky
 
 Behaves like `relative` until it reaches the threshold you define — then sticks like `fixed`. Scroll inside the demo to see it in action.
 
@@ -304,7 +304,7 @@ Behaves like `relative` until it reaches the threshold you define — then stick
 
 ---
 
-## 05. z-index & Stacking
+# Z-index & Stacking
 
 `z-index` controls the stacking order. Higher numbers are on top. Each positioned element creates a **stacking context** — z-index is relative within it.
 

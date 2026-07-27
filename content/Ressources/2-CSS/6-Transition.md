@@ -8,7 +8,7 @@ tags:
 description: Animate between CSS states smoothly — without JavaScript
 ---
 
-## 01. Basic Transition
+# Basic Transition
 
 A transition animates a CSS property whenever it changes (on hover, focus, class toggle, etc.). Without a transition the change is instant.
 
@@ -54,7 +54,7 @@ transition-delay:           0.1s;
 
 ---
 
-## 02. Timing Functions
+# Timing Functions
 
 Controls how the transition progresses over time. Hover the track area in the demo to see all four run simultaneously.
 
@@ -157,7 +157,7 @@ transition-timing-function: steps(5, end);
 
 ---
 
-## 03. Delay & Staggering
+# Delay & Staggering
 
 `transition-delay` waits before the transition starts. Apply increasing delays to siblings to create a stagger effect. Hover the row in the demo.
 
@@ -222,7 +222,7 @@ transition-timing-function: steps(5, end);
 
 ---
 
-## 04. Multiple Properties
+# Multiple Properties
 
 Separate multiple transitions with a comma. Each property can have its own duration, timing, and delay.
 
@@ -285,9 +285,10 @@ Separate multiple transitions with a comma. Each property can have its own durat
 
 ---
 
-## 05. What Can (and Can't) Be Transitioned
+# What Can (and Can't) Be Transitioned
 
-Only properties with numeric or color values can be transitioned. `display` cannot — use `opacity` + `visibility` instead.
+By default, only properties with numeric or color values can be transitioned. For example, `display` cannot — you would use `opacity` + `visibility` instead.
+
 
 ```html:index.html
 <div class="rows">
