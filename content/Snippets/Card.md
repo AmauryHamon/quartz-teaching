@@ -79,10 +79,10 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
 .card {
     display: flex;
     flex-direction: column;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--darkgray);
     border-radius: 10px;
     overflow: hidden;
-    background: white;
+    background: var(--light);
 }
 
 .card-media {
@@ -101,13 +101,13 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
 .card-title {
     margin: 0 0 0.3rem;
     font-size: 0.9rem;
-    color: #1e293b;
+    color: var(--dark);
 }
 
 .card-text {
     margin: 0;
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--gray);
 }
 
 .card-actions {
@@ -115,12 +115,12 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 0.75rem;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--darkgray);
 }
 
 .card-price {
     font-weight: 600;
-    color: #1e293b;
+    color: var(--dark);
     font-size: 0.85rem;
 }
 
@@ -128,7 +128,7 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
     padding: 0.35rem 0.7rem;
     border: none;
     border-radius: 6px;
-    background: #6366f1;
+    background: var(--highlight);
     color: white;
     font-size: 0.8rem;
     cursor: pointer;
@@ -158,10 +158,10 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
 
 ```css:style.css
 .card {
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--darkgray);
     border-radius: 10px;
     overflow: hidden;
-    background: white;
+    background: var(--light);
     max-width: 20rem;
 }
 
@@ -180,7 +180,7 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
 .card-title {
     margin: 0 0 0.4rem;
     font-size: 0.9rem;
-    color: #1e293b;
+    color: var(--dark);
 }
 
 .card-clamp {
@@ -193,7 +193,7 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
     margin: 0;
     font-size: 0.8rem;
     line-height: 1.3;
-    color: #64748b;
+    color: var(--gray);
 }
 
 .card-toggle {
@@ -201,7 +201,7 @@ A self-contained block of content — media, title, text, actions. Mostly a styl
     padding: 0;
     border: none;
     background: none;
-    color: #6366f1;
+    color: var(--highlight);
     font-size: 0.8rem;
     cursor: pointer;
 }

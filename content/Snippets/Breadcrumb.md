@@ -47,7 +47,7 @@ A trail of links showing where the current page sits in a hierarchy. Pure HTML a
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -57,17 +57,18 @@ A trail of links showing where the current page sits in a hierarchy. Pure HTML a
 .breadcrumb li {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
-    color: #64748b;
+    gap: 0.25rem;
+    color: var(--gray);
 }
 
 .breadcrumb li:not(:first-child)::before {
     content: "›";
-    color: #cbd5e1;
+    color: var(--gray);
 }
 
 .breadcrumb a {
-    color: #6366f1;
+    color: var(--highlight);
+    opacity: 0.7;
     text-decoration: none;
 }
 
@@ -76,8 +77,8 @@ A trail of links showing where the current page sits in a hierarchy. Pure HTML a
 }
 
 .breadcrumb li[aria-current="page"] {
-    color: #1e293b;
-    font-weight: 600;
+    color: var(--highlight);
+    
 }
 ```
 
@@ -122,14 +123,14 @@ The ellipsis is its own `<li>`, hidden by default — simpler than trying to sty
 .breadcrumb-demo {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.25rem;
 }
 
 .breadcrumb-label {
     margin: 0.5rem 0 0;
     font-family: monospace;
     font-size: 0.7rem;
-    color: #94a3b8;
+    color: var(--gray);
 }
 
 .breadcrumb-container {
@@ -139,7 +140,7 @@ The ellipsis is its own `<li>`, hidden by default — simpler than trying to sty
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -150,17 +151,18 @@ The ellipsis is its own `<li>`, hidden by default — simpler than trying to sty
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    color: #64748b;
+    color: var(--gray);
     white-space: nowrap;
 }
 
 .breadcrumb li:not(:first-child)::before {
     content: "›";
-    color: #cbd5e1;
+    color: var(--gray);
 }
 
 .breadcrumb a {
-    color: #6366f1;
+    color: var(--highlight);
+    opacity: 0.7;
     text-decoration: none;
 }
 
@@ -169,7 +171,7 @@ The ellipsis is its own `<li>`, hidden by default — simpler than trying to sty
 }
 
 .breadcrumb li[aria-current="page"] {
-    color: #1e293b;
+    color: var(--highlight);
     font-weight: 600;
 }
 

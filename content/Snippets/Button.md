@@ -69,28 +69,28 @@ Buttons carry more state than they look like they do — variants, sizes, disabl
 }
 
 .btn-primary {
-    background: #6366f1;
+    background: var(--highlight);
     color: white;
 }
 
 .btn-secondary {
-    background: #1e293b;
+    background: var(--lightgray);
     color: white;
 }
 
 .btn-outline {
     background: none;
-    border-color: #6366f1;
-    color: #6366f1;
+    border-color: var(--highlight);
+    color: var(--highlight);;
 }
 
 .btn-ghost {
     background: none;
-    color: #6366f1;
+    color: var(--highlight);
 }
 
 .btn-ghost:hover {
-    background: #eef2ff;
+    background: var(--lightgray);;
 }
 
 .btn-sm {
@@ -134,7 +134,7 @@ Clicking disables the button and swaps its label for a spinner + "Saving…", so
 }
 
 .btn-primary {
-    background: #6366f1;
+    background: var(--highlight);
     color: white;
 }
 

@@ -53,11 +53,11 @@ Same trick as the accordion note: `<details>`/`<summary>` opens and closes on it
 .dropdown-trigger {
     list-style: none;
     padding: 0.5rem 0.9rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--gray);
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.85rem;
-    color: #1e293b;
+    color: var(--darkgray);
 }
 
 .dropdown-trigger::-webkit-details-marker {
@@ -72,8 +72,8 @@ Same trick as the accordion note: `<details>`/`<summary>` opens and closes on it
     margin: 0;
     padding: 0.4rem;
     list-style: none;
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: var(--light);
+    border: 1px solid var(--gray);
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
     z-index: 10;
@@ -81,15 +81,16 @@ Same trick as the accordion note: `<details>`/`<summary>` opens and closes on it
 
 .dropdown-content li a {
     display: block;
-    padding: 0.4rem 0.6rem;
+    padding: 0.5rem;
     border-radius: 4px;
     font-size: 0.85rem;
-    color: #334155;
+    color: var(--darkgray);
     text-decoration: none;
 }
 
 .dropdown-content li a:hover {
-    background: #f1f5f9;
+    background: var(--darkgray);
+    color: var(--lightgray);
 }
 ```
 
@@ -115,13 +116,14 @@ A plain button and menu, toggled with JS instead of relying on `<details>`. Two 
 }
 
 .dropdown-trigger {
+    list-style: none;
     padding: 0.5rem 0.9rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--gray);
     border-radius: 6px;
-    background: white;
     cursor: pointer;
     font-size: 0.85rem;
-    color: #1e293b;
+    color: var(--darkgray);
+    background: var(--light);
 }
 
 .dropdown-content {
@@ -132,8 +134,8 @@ A plain button and menu, toggled with JS instead of relying on `<details>`. Two 
     margin: 0;
     padding: 0.4rem;
     list-style: none;
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: var(--light);
+    border: 1px solid var(--gray);
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
     z-index: 10;
@@ -141,15 +143,16 @@ A plain button and menu, toggled with JS instead of relying on `<details>`. Two 
 
 .dropdown-content li a {
     display: block;
-    padding: 0.4rem 0.6rem;
+    padding: 0.5rem;
     border-radius: 4px;
     font-size: 0.85rem;
-    color: #334155;
+    color: var(--darkgray);
     text-decoration: none;
 }
 
 .dropdown-content li a:hover {
-    background: #f1f5f9;
+    background: var(--darkgray);
+    color: var(--lightgray);
 }
 ```
 
@@ -214,13 +217,14 @@ if (root && trigger && menu) {
 }
 
 .dropdown-trigger {
+    list-style: none;
     padding: 0.5rem 0.9rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--gray);
     border-radius: 6px;
-    background: white;
     cursor: pointer;
     font-size: 0.85rem;
-    color: #1e293b;
+    color: var(--darkgray);
+    background: var(--light);
 }
 
 .dropdown-content {
@@ -232,8 +236,8 @@ if (root && trigger && menu) {
     min-width: 10rem;
     padding: 0.4rem;
     list-style: none;
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: var(--light);
+    border: 1px solid var(--gray);
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
@@ -247,14 +251,15 @@ if (root && trigger && menu) {
 
 .dropdown-content li a {
     display: block;
-    padding: 0.4rem 0.6rem;
+    padding: 0.5rem;
     border-radius: 4px;
     font-size: 0.85rem;
-    color: #334155;
+    color: var(--darkgray);
     text-decoration: none;
 }
 
 .dropdown-content li a:hover {
-    background: #f1f5f9;
+    background: var(--darkgray);
+    color: var(--lightgray);
 }
 ```

@@ -368,3 +368,76 @@ if (tabsEl) {
 ```
 
 Not built here: the pinned pixel height goes stale if the window resizes and the active panel's content reflows to a different height — a real component would re-measure on resize (or with a `ResizeObserver`) rather than trusting the value from the last `activate()` call.
+
+
+# Tabs using radio inputs
+
+```html:index.html
+<div class="tabs">
+      <!-- TYPE THE TABS MARKUP -->
+      <input type="radio" name="t" id="t1" checked />
+      <label for="t1">Tab1</label>
+      <input type="radio" name="t" id="t2" />
+      <label for="t2">Tab2</label>
+      <input type="radio" name="t" id="t3" />
+      <label for="t3">Tab3</label>
+      <div class="panel" data-panel="1"><p>Tab content 1.</p></div>
+      <div class="panel" data-panel="2"><p>Tab content 2.</p></div>
+      <div class="panel" data-panel="3"><p>Tab content 3.</p></div>
+</div>
+```
+```css:style.css
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #111111;
+  background: #f5f5f5;
+}
+.tabs label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: inherit;
+  color: #111111;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+.panel {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  border-top: 2px solid #111111;
+  display: none;
+  font-size: 1rem:
+  color: #111111;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  clip-path: inset(50%);
+  opacity: 0;
+}
+.tabs:has(#t1:checked) .panel[data-panel="1"],
+.tabs:has(#t2:checked) .panel[data-panel="2"],
+.tabs:has(#t3:checked) .panel[data-panel="3"] {
+  display: block;
+}
+.tabs::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  height: 4px;
+  width: calc(100% / 3);
+  background: #e8410a;
+  transform: translateY(34px);
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+.tabs:has(#t1:checked)::before { transform: translate(0,    4px); }
+.tabs:has(#t2:checked)::before { transform: translate(100%, 4px); }
+.tabs:has(#t3:checked)::before { transform: translate(200%, 4px); }
+
+```
