@@ -13,4 +13,4 @@ Me trouver: [Are.na](https://www.are.na/amaury-hamon) [Instagram](https://www.in
 
 Quelques points de départ: 
 
-[[Ressources/1-HTML|HTML]] [[Ressources/2-CSS|CSS]] [[Ressources/3-JS|JS]] [[Ressources/Divers|Divers]]
+[[Ressources/0-Design|Design]] [[Ressources/1-HTML|HTML]] [[Ressources/2-CSS|CSS]] [[Ressources/3-JS|JS]] [[Ressources/Divers|Divers]]
