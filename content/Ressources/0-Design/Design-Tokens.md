@@ -36,9 +36,7 @@ Si l'on compare avec des logiciels de mise en page imprimée comme InDesign, c'e
 
 Si l’on imagine un composant d’interface primitif comme un bouton, on peut le décomposer en de nombreuses décisions ou tokens:
 
-![Anatomie d’un composant bouton avec toutes les décisions graphiques impliquées](/files/button-tokens.png)
-Anatomie d’un composant bouton avec toutes les décisions graphiques impliquées 
-[Source: SpecifyApp](https://specifyapp.com/blog/introduction-to-design-tokens)
+![Anatomie d’un composant bouton avec toutes les décisions graphiques impliquées [Source: SpecifyApp](https://specifyapp.com/blog/introduction-to-design-tokens)](/files/button-tokens.png)
 
 La couleur primaire d’une application peut être nommée “app-base-primary” avec une valeur donnée ex: “#624de3”
 
@@ -54,18 +52,9 @@ Sous forme de donnée structurée (json par exemple ci-dessous) cela prendrait l
 
 Ces informations peuvent ensuite être utilisées et formatées pour n’importe quel besoin et type de plateforme: Android, iOS, Web, etc.
 
-
-### Usages de token
-
-
-Dans Figma sous forme de variables
-
-En code sous forme de variables
-
-
 ---
 
-# Avantages de tokens
+# Avantages des tokens
 
 - Source unique de vérité
 - Meilleur workflow de design à developpement
@@ -80,8 +69,7 @@ En code sous forme de variables
 
 Les premiers tokens que l’on crée sont généralement associés aux couleurs, styles de textes, espacements et grilles. Selon la complexité d’un projet, il existe différentes catégories de tokens ayant un certain degré de spécificité.
 
-![Token Categories](/files/tokens-pyramid-oscar-gonzales.png)
-Token Categories  ([Illustration: Oscar Gonzales](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099))
+![Token Categories [Illustration: Oscar Gonzales](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099)](/files/tokens-pyramid-oscar-gonzales.png)
 
 1. Valeur brute (pas de token – à éviter)
     
@@ -113,7 +101,7 @@ Token Categories  ([Illustration: Oscar Gonzales](https://uxdesign.cc/design-tok
 
 ---
 
-### Références
+# Références
 
 
 [Material Design: Design Tokens Overview](https://m3.material.io/foundations/design-tokens/overview)
