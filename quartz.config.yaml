@@ -55,6 +55,12 @@ plugins:
     options:
       defaultHeight: 400
     order: 15
+  - source: ./quartz/plugins/local/arena-embed
+    enabled: true
+    options:
+      channelPreviewCount: 6
+      cacheTtlMinutes: 1440
+    order: 16
   - source: github:quartz-community/syntax-highlighting
     enabled: true
     options:
@@ -79,6 +85,10 @@ plugins:
       enableVideoEmbed: true
       enableCheckbox: true
     order: 30
+  - source: ./quartz/plugins/local/image-caption
+    enabled: true
+    options: {}
+    order: 35
   - source: github:quartz-community/github-flavored-markdown
     enabled: true
     order: 40

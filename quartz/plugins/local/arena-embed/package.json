@@ -1,0 +1,21 @@
+{
+  "name": "arena-embed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turns a standalone ![](are.na URL) into a fetched preview card for Are.na blocks and channels",
+  "main": "./dist/index.js",
+  "quartz": {
+    "name": "arena-embed",
+    "displayName": "Are.na Embed",
+    "description": "Turns a standalone ![](are.na URL) into a fetched preview card for Are.na blocks and channels",
+    "category": "transformer",
+    "version": "1.0.0",
+    "defaultOrder": 16,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "channelPreviewCount": 6,
+      "cacheTtlMinutes": 1440
+    }
+  }
+}
