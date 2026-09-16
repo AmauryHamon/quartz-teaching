@@ -16,6 +16,8 @@ Git can either be leveraged through the CLI, or Source Control Panel UI on Visua
 
 Below is a list of most used CLI commands
 
+![Pixel Grid UI: Git Basics for Beginners: Init, Commit, Branch, Merge & Remotes](https://www.youtube.com/watch?v=OPlC6hcGX2w)
+
 # Workflow
 
 Generally, we want to use Git to do the following:
@@ -122,3 +124,5 @@ git remote show <remote_name> --verbose
 # More informations
 
 Tons of resources are available on [cs.fyi: git cheatsheet](https://cs.fyi/guide/git-cheatsheet)
+
+![Philomatics: videos on git](https://www.youtube.com/watch?v=xN1-2p06Urc&list=PLp3qkYQbU5kexG03Z79eU7SpoWtTv7Ww3)
