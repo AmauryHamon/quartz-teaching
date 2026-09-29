@@ -1,5 +1,5 @@
 ---
-title: P5.js
+title: P5
 draft: false
 tags:
 ---
