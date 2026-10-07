@@ -132,3 +132,45 @@ function repeatShape (x, y) {
 }
 ```
 
+# Placing points with a loop from a 2D Array
+
+Another useful way of using for loops within P5 is to place a range of positions coming from a 2D Array.
+
+Imagine we have the following list of points with each their coordinates:
+
+|         | x-pos | y-pos |
+|---------|-------|-------|
+| point A | 15    | 250   |
+| point B | 125   | 55    |
+| point C | 75    | 325   |
+| point D | 300   | 100   |
+
+When placing those in a 2D array we would have the following:
+
+```js
+const points = [
+  [15, 250],
+  [125, 55],
+  [75, 325],
+  [300, 100]
+]
+
+```
+
+In order to place all those points in one go we can use a for loop.
+Since a 2D array nest each points positions in their own array, to access x and y values we would need to write as such:
+`points[i][0]` for the x value (first value in the nested array), and `points[i][1]` for the y value (second value in the nested array)
+
+```js
+const points = [
+  [15, 250],
+  [125, 55],
+  [75, 325],
+  [300, 100]
+]
+
+for(let i = 0; i < points.length; i++){
+     ellipse(points[i][0], points[i][1], 50);
+}
+
+```
