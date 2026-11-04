@@ -251,6 +251,7 @@ items.forEach(item => {
 
 .target-box {
   background: #f1f5f9;
+  color: black;
   border-radius: 6px;
   padding: .6rem .9rem;
   font-size: .875rem;
